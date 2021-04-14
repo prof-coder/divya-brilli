@@ -1,0 +1,59 @@
+<div class="content_width">
+  <div class="title-wrap">
+    <h2>{{ section.settings.title }}</h2>
+  </div>
+  <div class="d_inline">
+    <div class="mx_widt">
+      {% for block in section.blocks %}
+      <div class="text_in title-holder">
+          <h2>{{ block.settings.numbers }}</h2>
+          {{ block.settings.sub_text }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <p class="yellow_text">Source: 3rd party study conducted by The BenchMarking Co. January 2020</p>
+</div>
+
+{% schema %}
+  {
+    "name": "Results",
+    "settings": [
+	{
+	  "type": "text",
+	  "id": "title",
+	  "label": "Title"
+	}
+],
+"blocks": [
+	{
+	  "type": "text",
+	  "name": "Text-block",
+	  "settings": [
+		{
+		  "type": "text",
+		  "id": "numbers",
+		  "label": "Numbers"
+		},
+		{
+		  "type": "richtext",
+		  "id": "sub_text",
+		  "label": "Sub Text"
+		}
+      ]
+	}
+],
+"presets": [
+	{
+	  "name": "Results",
+	  "category": "Text"
+	}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

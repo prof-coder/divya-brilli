@@ -1,0 +1,50 @@
+<section class="HomePress" data-section-id="{{ section.id }}">
+  <div class="inner">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="ProductPressGrid">
+      {% for block in section.blocks %}
+        {% assign index = i | plus: 0 %}
+        <div class="press-item">
+          <img src="{{ block.settings.image | img_url: 'original' }}" alt="{{ block.settings.title }}" />
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Press Items",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "press_item",
+        "name": "Press Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

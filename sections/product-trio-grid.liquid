@@ -1,0 +1,22 @@
+{% if shop.metafields.custom_fields["product_trio_grid"] != blank %}
+  <section class="ProductTrioGrid {{ product.type | handleize }}" data-section-id="{{ section.id }}">
+    <div class="inner">
+      {% assign separator = "|###|" %}
+      {% assign trio_item_title_array = shop.metafields.custom_fields["trio_item_title"] | split: separator %}
+      {% assign trio_item_description_array = shop.metafields.custom_fields["trio_item_description"] | split: separator %}
+      {% assign trio_item_button_label_array = shop.metafields.custom_fields["trio_item_button_label"] | split: separator %}
+      {% assign trio_item_url_array = shop.metafields.custom_fields["trio_item_url"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["product_trio_grid"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="item">
+          <h3>{{ trio_item_title_array[index] }}</h3>
+          <div class="description">
+            {{ trio_item_description_array[index] }}
+          </div>
+          <a class="button outline" href="{{ trio_item_url_array[index] }}">{{ trio_item_button_label_array[index] }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,53 @@
+<div class="sub-menu {{ link.handle }}">
+  <div class="inner">
+    {% assign slug = link.handle | replace: "-", "_" %}
+    {% assign subtitle_str = "mega_menu_" | append: slug | append: "_subt" %}
+    {% assign image_str = "mega_menu_" | append: slug | append: "_img" %}
+    {% assign webp_image_str = "mega_menu_" | append: slug | append: "_img_url" %}
+    {% assign description_str = "mega_menu_" | append: slug | append: "_desc" %}
+
+    <div class="left block">
+      <h3>{{ link.title }}</h3>
+      <p>{{ shop.metafields.custom_fields[subtitle_str] }}</p>
+      {% if link.handle == "learn" %}
+      {% assign sz = link.links | size | divided_by: 2.0 | ceil %}
+      {% assign h = sz | times: 48 %}
+      <ul style="height: {{ h }}px">
+      {% else %}
+      <ul>
+      {% endif %}
+        {% for child_link in link.links %}  
+        <li>
+          {% assign classes = blank %}
+          {% if child_link.current == true %}
+          {% assign classes = "current_page_item current-menu-item" %}
+          {% endif %}
+          <a href="{{ child_link.url }}" class="{{ classes }}" data-id="{{ child_link.handle }}">
+            {% if child_link.type == 'product_link' %}
+              {% for image in child_link.object.images %}
+                {% if image.alt contains "menu" %}   
+                  <img src="{{ image | img_url }}" alt="{{ image.alt }}" />
+                  {% break %}
+                {% endif %}
+              {% endfor %}              
+            {% endif %}
+            {{ child_link.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul> 
+      {% unless link.handle == "learn" %}
+      <a href="{{ link.url }}" class="button large outline">See all {{ link.title }}</a>
+      {% endunless %}
+    </div>
+    <div class="right block">
+      <a href="{{ link.url }}">
+        <picture>
+          <source srcset="{{ shop.metafields.custom_fields[webp_image_str] }}" type="image/webp">
+          {{ shop.metafields.custom_fields[image_str] }}
+        </picture>
+      </a>
+      {{ shop.metafields.custom_fields[description_str] }}
+    </div>
+  </div>
+</div>

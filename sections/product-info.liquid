@@ -1,0 +1,253 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+{% assign title = current_variant.metafields.custom_fields["product_detail_name"] %}
+{% if title == blank %}
+  {% assign title = product.title %}
+{% endif %} 
+
+<section class="ProductInfo {{ product.type | handleize }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" data-product-id="{{ecommerce_id}}">
+  <div class="inner">
+    <div class="images left">
+      <div class="image-holder half">
+        {% if product.has_only_default_variant %}
+          {% include 'product-slideshow' %}
+        {% else %}
+          {% for option in product.options %}
+             {% if option == 'Watt' %}
+             {% assign product_id = product.id %}
+             {% assign index = forloop.index0 %}
+             {% assign wattage = '' %}
+             {% assign watts = '' %}
+             {% assign optionvalues = '' %}
+             {% for variant in product.variants %}
+               {% capture watts %}
+               {% assign title = blank %}
+               {{ variant.options[index] }}
+               {% endcapture %}
+                 {% unless wattage contains watts %}
+                    {% assign variant_id = blank %}
+                    {% assign variant_available = false %}
+
+                      {% assign cnt = 0 %}
+                      {% for v in product.variants %}
+                        {% if cnt > -1 %}
+                          {% if v.option1 == variant.options[index] %}
+
+                            {% unless optionvalues contains v.option1 %}
+                              {% assign optionvalues = optionvalues | append: v.option1 %}
+                              {% assign option_val = v.option1 | append:"" %}
+                              
+                              <div class="slideshow-wrap {{ option_val }} ">
+                                <div class="slideshow">
+                                  {% for image in product.images %}
+                                    {% if image.alt contains "gallery" and image.alt contains option_val %}
+                                      <div class="slide {{ image.alt }}"><img src="{{ image.src | img_url: '1200x' }}" alt="{{ image.alt }}"/></div>    
+                                    {% endif %}
+                                  {% endfor %}
+                                </div>
+
+                                {% assign size = product.images | size %}
+                                {% if size > 1 %}
+                                <div class="thumbnails">
+                                  {% for image in product.images %}
+                                    {% if image.alt contains "gallery" and image.alt contains option_val %}
+                                      <span class="thumb {{ image.alt }}"><img src="{{ image.src | img_url: '200x' }}" alt="{{ image.alt }}"/></span>    
+                                    {% endif %}
+                                  {% endfor %}
+                                </div>
+                                {% endif %}
+                              </div>
+
+                            {% endunless %}
+
+                            {% comment %} Images {% endcomment %}
+                            {% for image in product.images %}
+                              {% if image.alt contains "overlay" %}
+                                {% assign overlay_image = image %}
+                              {% endif %}
+                            {% endfor %}
+                          {% endif %}
+                        {% endif %}
+
+                        {% if v.option1 == variant.options[index] %}
+                          {% if cnt == 1 %}
+                          {% endif %}
+                        {% endif %}
+                        {% assign cnt = cnt | plus: 1 %}
+                      {% endfor %}
+
+                  {% capture tempList %}
+                {{wattage | append: watts | append: " " }}
+                {% endcapture %}
+                {% assign wattage = tempList %}
+                {% endunless %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="details right">
+      <div class="product-title">
+        <h2>{{ product.type }}</h2>
+        <h1>{{ title }}</h1>
+      </div>
+      <div class="star-rating-wrap">
+        <div class="product-star-rating yotpo bottomLine"
+          data-appkey="W3b6GPSj8fjs7h2XMPYE8sFjD0GZVs1RzyN5F3Ks"    
+          data-product-id="{{ product.id }}" style="pointer-events: none;">
+        </div>
+        <a class="reviews-anchor"></a>
+      </div>
+
+      <div class="rte product-description">
+        {{ product.metafields.custom_fields["product_uvp"] }}
+      </div>
+
+      {% form 'product', product, data-product-id: product.id, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            {% unless option.name == 'Bulb Shape' %}
+            {% if option.name == 'Watt' and product.metafields.custom_fields["wattage_products"] != blank %}
+              {% include 'wattage-nav' %}
+            {% else %}
+            <div class="product-options-wrap">
+              <h4>{{ option.name }}:</h4>
+              <div class="product-options {{ option.name | handleize }} js">
+                {% if forloop.index0 > -1 %}
+                  {% for value in option.values %}
+                    <label for="Option{{ option.position }}-{{ value }}"><input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}><span class="value">{{ value }}</span></label>
+                  {% endfor %}
+                {% else %}
+
+                  <label for="Option{{ option.position }}">
+                    {{ option.name }}
+                  </label>
+
+                  <select
+                    id="Option{{ option.position }}"
+                    name="options[{{ option.name | escape }}]">
+                    {% for value in option.values %}
+                      <option
+                        value="{{ value | escape }}"
+                        {% if option.selected_value == value %}selected="selected"{% endif %}>
+                          {{ value }}
+                      </option>
+                    {% endfor %}
+                  </select>
+
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+            {% endunless %}
+          {% endfor %}
+        {% endunless %}
+
+        <noscript>
+          <select name="id">
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+        </noscript>
+
+        <input name="id" id="variantID" value="{{ current_variant.id }}" type="hidden">
+
+        <div class="product-actions">
+          <div class="item">
+            {% include 'product-price' %}
+          </div>
+          <div class="item">
+          </div>
+        </div>
+
+        <div class="product-quantity">
+          <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
+          <label>{{ 'products.product.quantity' | t }}:</label>
+          <span class="item-quantity">
+            <button class="icon-minus">{% include 'minus' %}<span class="visually-hidden">Quantity Less</span></button>
+            <span class="qty">1</span>
+            <button class="icon-plus">{% include 'plus' %}<span class="visually-hidden">Quantity More</span></button>
+          </span>
+        </div>
+
+        <div class="product-add">
+          {% include 'product-add-to-cart' %}
+        </div>
+
+        <div class="product-add mobile">
+          {% include 'product-add-to-cart' %}
+        </div>
+
+        <div class="product-derisk">
+          {% if product.metafields.custom_fields["product_special_instructions"] != blank %}
+            <div class="special-instructions">  
+                {{ product.metafields.custom_fields["product_special_instructions"] }}
+            </div>  
+          {% endif %}
+          {{ shop.metafields.custom_fields["purchase_derisk_text"] }}
+        </div>
+
+      {% endform %}
+
+      <dl class="accordion">
+        <dt><a href="">Description</a></dt>
+        <dd>
+          <div class="rte product-description">
+            {{ product.description }}
+          </div>
+        </dd>
+
+        <dt><a href="">Wellness Specs</a></dt>
+        <dd>
+          <div class="rte general-specs">
+            {{ product.metafields.custom_fields["wellness_metrics"] }}
+          </div>
+        </dd>
+        {% assign size = product.variants | size %}
+        <dt><a href="">Technical Specs</a></dt>
+        <dd>
+          <div class="rte">
+          {{ product.metafields.custom_fields["general_specifications"] }}
+          </div>
+          {% if size > 1%}
+          {%- for variant in product.variants -%}
+          <div class="rte variant-custom-fields" data-variant-id="{{ variant.id }}"  {% if variant.id == current_variant.id or size == 1 %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <div class="variant__cf">
+              {% if variant.metafields.custom_fields['specification_list'] !=blank %}
+                {{ variant.metafields.custom_fields['specification_list'] }}
+              {% endif %}
+            </div>
+          </div>
+          {%- endfor -%}
+          {% else %}
+          <div class="rte variant-custom-fields" data-variant-id="{{ product.selected_or_first_available_variant.id }}" style="display: block;">
+            {{ product.metafields.custom_fields["specification_list"] }}
+          </div>
+          {% endif %}
+        </dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}
+  

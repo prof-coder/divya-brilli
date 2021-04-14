@@ -1,0 +1,17 @@
+<section class="ProductReviews {{ product.type | handleize }}" data-section-id="{{ section.id }}">
+  <div class="inner">
+    <h2>Our Reviews</h2>
+    <!-- Yotpo - Reviews Widget -->
+    <div class="yotpo yotpo-main-widget"
+         data-product-id="{{ product.id }}"
+         data-price="{{ variant.price | money_without_currency }}"
+         data-currency="{{ shop.currency }}"
+         data-name="{{ product.title | escape }}"
+         data-url="{{ shop.url }}{{ product.url }}"
+         data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+         data-description="{{ product.description | escape }}"
+         style="width: 95%; padding: 15px">
+    </div>
+    <!--  End of Yotpo - Reviews Widget -->
+  </div>
+</section>

@@ -1,0 +1,76 @@
+{% include 'local-products' %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="{{ settings.color_accent }}">
+{% if template contains 'collection' and current_tags %}
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
+{% elsif collection.title == 'Look Up'" %}
+  <meta name="robots" content="noindex" />
+{% elsif collection.title == 'Wind Down'" %}
+  <meta name="robots" content="noindex" />
+{% elsif current_tags" %}
+  <meta name="robots" content="noindex" />
+{% else %}    
+  <meta name="robots" content="index">  
+  <link rel="canonical" href="{{ canonical_url }}" /> 
+{% endif %}
+{% include 'gtm-head' %}
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,500i&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Khand:300,400,500,600,700.800&display=block" rel="stylesheet">
+{%- if settings.favicon != blank -%}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+{%- endif -%}
+{%- capture seo_title -%}
+  {{ page_title }}
+  {%- if current_tags -%}
+    {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+  {%- endif -%}
+  {%- if current_page != 1 -%}
+    &ndash; {{ 'general.meta.page' | t: page: current_page }}
+  {%- endif -%}
+  {%- assign escaped_page_title = page_title | escape -%}
+  {%- unless escaped_page_title contains shop.name -%}
+    &ndash; {{ shop.name }}
+  {%- endunless -%}
+{%- endcapture -%}
+<title>{{ seo_title | strip }}</title>
+
+{%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}
+
+{% include 'favicons' %}
+{% include 'social-meta-tags' %}
+{% include 'style-tags', layout: 'theme' %}
+{% include 'css-variables' %}
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace('no-js', '');
+
+  window.theme = {
+    strings: {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }}
+    },
+    moneyFormat: {{ shop.money_format | json }}
+  };
+
+  {% if template.directory == 'customers' %}
+    theme.allCountryOptionTags = {{ all_country_option_tags | json }};
+  {% endif %}
+</script>
+
+ <script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+{{ 'jquery.easing.1.3.js' | asset_url | script_tag }}
+{{ 'jquery.cookie.js' | asset_url | script_tag }}
+{% include 'script-tags', layout: 'theme' %}
+{{ 'slick.js' | asset_url | script_tag }}
+{{ 'cj-event-storage.js' | asset_url | script_tag }}
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/W3b6GPSj8fjs7h2XMPYE8sFjD0GZVs1RzyN5F3Ks/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>

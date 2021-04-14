@@ -1,0 +1,31 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/142243/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["product_risk_reducer_icons"] != blank %}
+  <div class="custom-field custom-field__product-risk-reducer-icons custom-field__type--field-collection">
+    <h3 class="custom-field--title">Product Risk Reducer Icons</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign risk_reducer_icon_array = shop.metafields.custom_fields["risk_reducer_icon"] | split: separator %}
+      {% assign risk_reducer_title_array = shop.metafields.custom_fields["risk_reducer_title"] | split: separator %}
+      {% assign risk_reducer_icon_url1_array = shop.metafields.custom_fields["risk_reducer_icon_url1"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["product_risk_reducer_icons"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__risk-reducer-icon">
+            {{ risk_reducer_icon_array[index] }}
+          </div>
+          <div class="fc-field field__risk-reducer-title">
+            {{ risk_reducer_title_array[index] }}
+          </div>
+          <div class="fc-field field__risk-reducer-icon-url1">
+            {{ risk_reducer_icon_url1_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

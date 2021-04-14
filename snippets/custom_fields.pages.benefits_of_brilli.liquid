@@ -1,0 +1,31 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/pages/configure/93730/edit
+{% endcomment %}
+{% if page.metafields.custom_fields["benefits_of_brilli"] != blank %}
+  <div class="custom-field custom-field__benefits-of-brilli custom-field__type--field-collection">
+    <h3 class="custom-field--title">Benefits of Brilli</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign benefit_title_array = page.metafields.custom_fields["benefit_title"] | split: separator %}
+      {% assign benefit_description_array = page.metafields.custom_fields["benefit_description"] | split: separator %}
+      {% assign benefit_image_url_array = page.metafields.custom_fields["benefit_image_url"] | split: separator %}
+      {% assign fc_keys = page.metafields.custom_fields["benefits_of_brilli"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__benefit-title">
+            {{ benefit_title_array[index] }}
+          </div>
+          <div class="fc-field field__benefit-description">
+            {{ benefit_description_array[index] }}
+          </div>
+          <div class="fc-field field__benefit-image-url">
+            {{ benefit_image_url_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

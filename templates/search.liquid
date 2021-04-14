@@ -1,0 +1,88 @@
+{% assign product_cnt = 0 %}
+{% for item in search.results %}
+  {% if item.object_type == 'product' %}
+    {% assign product = item %}
+    {% if product.has_only_default_variant %}
+      {% assign product_cnt = product_cnt | plus: 1 %}
+    {% else %}
+      {% for option in product.options %}
+         {% if option == 'Watt' %}
+         {% assign product_id = product.id %}
+         {% assign index = forloop.index0 %}
+         {% assign wattage = '' %}
+         {% assign watts = '' %}
+         {% for variant in product.variants %}
+         {% capture watts %}
+         {% assign title = blank %}
+         {{ variant.options[index] }}
+         {% endcapture %}
+           {% unless wattage contains watts %}
+              {% assign product_cnt = product_cnt | plus: 1 %}  
+              {% capture tempList %}
+            {{wattage | append: watts | append: " " }}
+            {% endcapture %}
+            {% assign wattage = tempList %}
+            {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+
+{% assign article_cnt = 0 %}
+{% for item in search.results %}
+    {% if item.object_type == 'article' %}
+      {% assign article = item %}
+      {% if article.url contains 'brilli' %}
+        {% assign article_cnt = article_cnt | plus: 1 %}
+      {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% assign search_results_cnt = product_cnt | plus: article_cnt %}
+
+
+<div id="content" role="main">
+{% paginate search.results by 100 %}
+    <div class="SearchHeader">
+      <h1>
+        {% if search.performed %}
+          {% if search_results_cnt > 0 %}
+            <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
+            {{ 'general.search.results_with_count' | t: terms: search.terms, count: search_results_cnt }}
+          {% else %}
+            {{ 'general.search.results_with_count' | t: terms: search.terms, count: 'No' }}
+          {% endif %}
+        {% else %}
+          {{ 'general.search.title' | t }}
+        {% endif %}
+      </h1>
+
+      <form action="/search" method="get" role="search">
+        <label for="Search" class="label-hidden">
+          {{ 'general.search.placeholder' | t }}
+        </label>
+        <input type="search"
+               name="q"
+               id="Search"
+               value="{{ search.terms | escape }}"
+               placeholder="{{ 'general.search.placeholder' | t }}">
+        <button type="submit" class="button">
+          {% include 'icon-search' %}
+          <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+        </button>
+      </form>
+    </div>
+    
+    {% if search.performed %}
+      {% if search_results_cnt == 0 %}
+        <p class="no-results">{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+      {% else %}
+        {% section "search-products" %}
+        {% section "search-blog" %}
+      {% endif %}
+    {% endif %}
+{% endpaginate %}
+</div>

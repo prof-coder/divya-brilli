@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/products/configure/146050/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["best_results_image"] != blank %}
+  <div class="custom-field custom-field__best-results-image custom-field__type--image">
+    <h3 class="custom-field--title">Best Results Image</h3>
+    <div class="custom-field--value">  
+      {% include 'cf-image' with image: product.metafields.custom_fields["best_results_image"], print: 'url' %}
+    </div>
+  </div>
+{% endif %}

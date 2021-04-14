@@ -1,0 +1,31 @@
+<section class="ProductPress" data-section-id="{{ section.id }}">
+  <div class="inner">
+    <h2>FEATURED IN</h2>
+    <div class="ProductPressGrid">
+      {% if shop.metafields.custom_fields["press_logos"] != blank %}
+        {% assign separator = "|###|" %}
+        {% assign press_logo_array = shop.metafields.custom_fields["press_logo"] | split: separator %}
+        {% assign fc_keys = shop.metafields.custom_fields["press_logos"] | split: "," %}
+        {% for i in fc_keys %}
+          {% assign index = i | plus: 0 %}
+          <div class="press-item">
+            <img src="{{ press_logo_array[index] }}" alt="press-image" />
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Product Press",
+    "presets": [
+      {
+        "name": "Product Press",
+        "category": "Product"
+      }
+    ]
+  }
+{% endschema %}

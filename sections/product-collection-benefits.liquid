@@ -1,0 +1,33 @@
+{% if product.metafields.custom_fields["benefit_collection"] != blank %}
+  {% assign collection_ref = collections[product.metafields.custom_fields["benefit_collection"]] %}
+{% endif %}
+
+
+{% if collection_ref != blank %}
+
+<section class="ProductCollectionBenefits" data-section-id="{{ section.id }}">
+  <div class="inner">
+    <h2>{{ collection_ref.metafields.custom_fields["benefit_section_title"] }}</h2>
+    <div class="BenefitsGrid col3">
+      <ul>
+        {% assign separator = "|###|" %}
+        {% assign benefit_title_array = collection_ref.metafields.custom_fields["benefit_title"] | split: separator %}
+        {% assign benefit_description_array = collection_ref.metafields.custom_fields["benefit_description"] | split: separator %}
+        {% assign benefit_image_url_array = collection_ref.metafields.custom_fields["benefit_image_url"] | split: separator %}
+        {% assign fc_keys = collection_ref.metafields.custom_fields["benefits"] | split: "," %}
+        {% for i in fc_keys %}
+          {% assign index = i | plus: 0 %}
+          <li class="benefit benefit-{{ index }}">
+            <img src="{{ benefit_image_url_array[index] }}" alt="{{ benefit_title_array[index] }}"/>
+            <h3>{{ benefit_title_array[index] }}</h3>
+            {{ benefit_description_array[index] }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="benefit-disclaimer">
+      {{ collection_ref.metafields.custom_fields["benefit_section_disclaimer"] }}
+    </div>
+  </div>
+</section>
+{% endif %}

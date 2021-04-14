@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/146929/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["mega_menu_charge_up_desc"] != blank %}
+  <div class="custom-field custom-field__mega-menu-charge-up-desc custom-field__type--html">
+    <h3 class="custom-field--title">Mega Menu Charge Up Description</h3>
+    <div class="custom-field--value">
+      {{ shop.metafields.custom_fields["mega_menu_charge_up_desc"] }}
+    </div>
+  </div>
+{% endif %}

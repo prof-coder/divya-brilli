@@ -1,0 +1,32 @@
+{% assign mobile_text_position_style = section.settings.mobile_text_position_style %}
+{% assign mobile_image_size = section.settings.mobile_image_size %}
+{% assign display_circle = section.settings.display_circle %}
+{% assign circle_color = section.settings.circle_color %}
+{% assign circle_small = section.settings.circle_small %}
+{% assign circuit_style = section.settings.circuit_style %}
+{% assign bulb_style = section.settings.bulb_style %}
+{% assign bulb_image_url = product.metafields.custom_fields["tips_bulb_image"] %}
+{% assign custom_css_classes = product.metafields.custom_fields["tips_custom_css_classes"] %} 
+
+
+<style>
+  .ProductTips .bulb {
+    background-image: url('{{ bulb_image_url }}');
+  }
+</style>
+
+<section class="ProductTips {{ product.type | handleize }} image-with-text {{ section.settings.line-style }} {{ mobile_text_position_style }} {{ mobile_image_size }} image-left {{ bulb_style }} {{ custom_css_classes }}">
+  <div class="glow_bg"></div>
+  {% include 'bulbs' %}
+
+  <div class="image__image">
+    <div class="image desktop" style="background-image: url({{ product.metafields.custom_fields["tips_image"] }})"></div>
+    <div class="image mobile" style="background-image: url({{ product.metafields.custom_fields["tips_image"] }})"></div>
+  </div>
+
+  <div class="image-with-text__text">
+    <div class="inner">
+      <h2>{{ product.metafields.custom_fields["tips_title"] }}</h2>
+      <div>{{ product.metafields.custom_fields["tips_body"] }}</div>
+    </div>
+</div>

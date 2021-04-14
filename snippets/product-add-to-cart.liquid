@@ -1,0 +1,15 @@
+<button
+  type="button"
+  name="add"
+  class="button large add-to-cart"
+  data-submit-button
+  {% unless current_variant.available %}style="display: none;"{% endunless %}
+  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+    <span class="button-text" data-submit-button-text>
+      {% if current_variant.available %}
+        {{ 'products.product.add_to_cart' | t }}
+      {% else %}
+        {{ 'products.product.sold_out' | t }}
+      {% endif %}
+    </span>
+</button>

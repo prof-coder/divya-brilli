@@ -1,0 +1,86 @@
+{% if blog.handle == 'press' %}
+  <div id="content" role="main" class="PressContent" >
+    <div class="TitleWrap">
+      <h1>{{ blog.metafields.custom_fields["blog_title"] }}</h1>
+      {% if blog.metafields.custom_fields["blog_subtitle"] != blank %}
+      <h3>{{ blog.metafields.custom_fields["blog_subtitle"] }}</h3>
+      {% endif %}
+    </div>
+
+    <section class="PressGrid GridWrap">
+    {% for article in blog.articles %}
+      {% include 'press-entry' %}
+    {% endfor %}
+    </section>
+
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+    {% endif %}
+
+  </div>
+
+{% elsif blog.handle == 'brilli' %}
+
+<div id="content" role="main">
+{% paginate blog.articles by 200 %}
+
+  {%- assign blog_title = blog.title -%}
+
+  {% if blog.handle == 'press' %}
+  <section class="PageHeader">
+    <div class="inner">
+      
+    </div>
+  </section>
+
+  <section class="PressGrid">
+  {% for article in blog.articles %}
+    {% include 'press-entry' %}
+  {% endfor %}
+  </section>
+
+  {% elsif blog.handle == 'brilli' %}
+  <section class="PageHeader">
+    <div class="inner">
+      <div class="text-wrap">
+        
+      </div>
+
+      <div class="menu-recipe-category-menu-container">
+        <ul id="menu-recipe-category-menu" class="menu">
+          {% for link in linklists.recipe-categories.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="page-content">
+    {% if current_tags == blank %}
+      {% section 'blog-hero-carousel' %}
+      {% include 'blog-tags' %}
+    {% else %}
+      <h2>Tagged “{{ current_tags }}”</h2>
+      {% include 'blog-tags' %}
+    {% endif %}
+    
+    
+    <section class="BlogGrid only{{ blog.articles.size }}">
+      {% for article in blog.articles %}
+        {% include 'blog-entry' %}
+      {% endfor %}
+    </section>
+  </div>
+  {% endif %}
+
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}
+</div>
+
+{% endif %}

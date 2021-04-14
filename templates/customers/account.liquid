@@ -1,0 +1,106 @@
+<div id="content" role="main" class="Account">
+  <div class="inner">
+    <div class="AccountTitle no-description">
+      <h1>{{ 'customer.account.title' | t }}</h1>
+    </div>
+    <div class="AccountSection">
+      <h2>{{ 'customer.account.details' | t }}</h2>
+      <div class="logout-holder"><a class="logout text-link" href="/account/logout">Logout</a></div>
+      <hr/>
+      <div class="AccountInfo">
+        <div class="left column">
+          <p><span class="label">Name</span>{{customer.first_name}} {{customer.last_name}} </p>
+          <p><span class="label">Email</span>{{customer.email}}</p>
+        </div>
+        <div class="right column">
+          {% if customer.addresses_count == 0 %}
+            <p class="empty">No addresses found.</p>
+            <div class="address-link">
+              <a class="text-link" href="/account/addresses">{{ 'customer.account.add_address' | t }}</a>
+            </div>
+          {% else %}
+            <div class="address-wrap default">
+              <p><span class="label">Default Address</span></p>
+              {% assign address = customer.default_address %}
+              {% include 'address' %}
+            </div>
+            {% if customer.addresses_count > 1 %}
+            <div class="address-wrap">
+              <div class="column">
+                <p><span class="label">Additional Addresses</span></p>
+              </div>
+              <div class="column">
+                {% for address in customer.addresses %}
+                  {% unless address.id == customer.default_address.id  %}
+                  {% include 'address' %}
+                  {% endunless %}
+                {% endfor %}    
+              </div>
+            </div>
+            {% endif %}
+            <div class="address-link">
+              <a class="text-link" href="/account/addresses">{{ 'customer.account.add_address' | t }}</a>
+            </div>
+
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="AccountSection">
+      <h2>{{ 'customer.orders.title' | t }}</h2>
+      <hr/>
+      <div class="AccountOrders">
+      {% paginate customer.orders by 20 %}
+        {% if customer.orders.size != 0 %}
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.total' | t }}</th>
+                <th class="desktop">{{ 'customer.orders.payment_status' | t }}</th>
+                <th class="desktop">{{ 'customer.orders.fulfillment_status' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+
+                {% assign order_url = order.customer_url %}
+                <tr class="responsive-table-row">
+                  <td data-label="{{ 'customer.orders.date' | t }}"><p>{{ order.created_at | date: '%m/%d/%Y' }}</p></td>
+                  <td data-label="{{ 'customer.orders.order_number' | t }}"><p><a href="{{order_url}}" class="text-link">{{ order.name }}</a></p></td>
+                  <td data-label="{{ 'customer.orders.total' | t }}"><p>{{ order.total_price | money }}</p></td>
+                  <td class="desktop" data-label="{{ 'customer.orders.payment_status' | t }}"><p>{{ order.financial_status_label }}</p></td>
+                  <td class="desktop" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                    {% if order.fulfillment_status == 'fulfilled' %}
+                    <p>
+                    {% for line_item in order.line_items %}
+                      {% if line_item.fulfillment.tracking_number %}
+                          <a href="{{ line_item.fulfillment.tracking_url }}" class="text-link" target="_blank">{{ line_item.fulfillment.tracking_number}}</a>
+                          {% break %}
+                      {% endif %}
+                      <br>
+                    {% endfor %}
+                    </p>
+                    {% else %}
+                    <p>{{ order.fulfillment_status }}</p>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="empty">{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+
+      {% endpaginate %}
+      </div>
+    </div>
+  </div>
+</div`>

@@ -1,0 +1,8 @@
+{% if page.metafields.custom_fields["page_callout_text"] != blank %}
+  <div class="page-callout-block">
+    <h3>{{ page.metafields.custom_fields["page_callout_text"] }}</h3>
+    <div>
+      <a href="{{ page.metafields.custom_fields["page_callout_button_url"] }}" class="button outline" style="">{{ page.metafields.custom_fields["page_callout_button_label"] }}</a>
+    </div>
+  </div>
+  {% endif %}

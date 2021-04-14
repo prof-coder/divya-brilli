@@ -1,0 +1,62 @@
+{% if address %}
+<select data-address-province
+        name="address[province]"
+        id="AddressProvince_{{ form.id }}"
+        data-default="{{ form.province }}">
+{% else %}
+<select name="address[province]" id="AddressProvinceNew" required>
+
+{% endif %}
+  <option value="State" disabled {% if form.province == blank%}selected{% endif %}>State*</option>  
+  <option value="Alabama" {% if form.province == "Alabama"%}selected{% endif %}>Alabama</option>
+  <option value="Alaska" {% if form.province == "Alaska" %}selected{% endif %}>Alaska</option>
+  <option value="Arizona" {% if form.province == "Arizona" %}selected{% endif %}>Arizona</option>
+  <option value="Arkansas" {% if form.province == "Arkansas" %}selected{% endif %}>Arkansas</option>
+  <option value="California" {% if form.province == "California" %}selected{% endif %}>California</option>
+  <option value="Colorado" {% if form.province == "Colorado" %}selected{% endif %}>Colorado</option>
+  <option value="Connecticut" {% if form.province == "Connecticut" %}selected{% endif %}>Connecticut</option>
+  <option value="Delaware" {% if form.province == "Delaware" %}selected{% endif %}>Delaware</option>
+  <option value="District of Columbia" {% if form.province == "District of Columbia" %}selected{% endif %}>District of Columbia</option>
+  <option value="Florida" {% if form.province == "Florida" %}selected{% endif %}>Florida</option>
+  <option value="Georgia" {% if form.province == "Georgia" %}selected{% endif %}>Georgia</option>
+  <option value="Hawaii" {% if form.province == "Hawaii" %}selected{% endif %}>Hawaii</option>
+  <option value="Idaho" {% if form.province == "Idaho" %}selected{% endif %}>Idaho</option>
+  <option value="Illinois" {% if form.province == "Illinois" %}selected{% endif %}>Illinois</option>
+  <option value="Indiana" {% if form.province == "Indiana" %}selected{% endif %}>Indiana</option>
+  <option value="Iowa" {% if form.province == "Iowa" %}selected{% endif %}>Iowa</option>
+  <option value="Kansas" {% if form.province == "Kansas" %}selected{% endif %}>Kansas</option>
+  <option value="Kentucky" {% if form.province == "Kentucky" %}selected{% endif %}>Kentucky</option>
+  <option value="Louisiana" {% if form.province == "Louisiana" %}selected{% endif %}>Louisiana</option>
+  <option value="Maine" {% if form.province == "Maine" %}selected{% endif %}>Maine</option>
+  <option value="Maryland" {% if form.province == "Maryland" %}selected{% endif %}>Maryland</option>
+  <option value="Massachusetts" {% if form.province == "Massachusetts" %}selected{% endif %}>Massachusetts</option>
+  <option value="Michigan" {% if form.province == "Michigan" %}selected{% endif %}>Michigan</option>
+  <option value="Minnesota" {% if form.province == "Minnesota" %}selected{% endif %}>Minnesota</option>
+  <option value="Mississippi" {% if form.province == "Mississippi" %}selected{% endif %}>Mississippi</option>
+  <option value="Missouri" {% if form.province == "Missouri" %}selected{% endif %}>Missouri</option>
+  <option value="Montana" {% if form.province == "Montana" %}selected{% endif %}>Montana</option>
+  <option value="Nebraska" {% if form.province == "Nebraska" %}selected{% endif %}>Nebraska</option>
+  <option value="Nevada" {% if form.province == "Nevada" %}selected{% endif %}>Nevada</option>
+  <option value="New Hampshire" {% if form.province == "New Hampshire" %}selected{% endif %}>New Hampshire</option>
+  <option value="New Jersey" {% if form.province == "New Jersey" %}selected{% endif %}>New Jersey</option>
+  <option value="New Mexico" {% if form.province == "New Mexico" %}selected{% endif %}>New Mexico</option>
+  <option value="New York" {% if form.province == "New York" %}selected{% endif %}>New York</option>
+  <option value="North Carolina" {% if form.province == "North Carolina" %}selected{% endif %}>North Carolina</option>
+  <option value="North Dakota" {% if form.province == "North Dakota" %}selected{% endif %}>North Dakota</option>
+  <option value="Ohio" {% if form.province == "Ohio" %}selected{% endif %}>Ohio</option>
+  <option value="Oklahoma" {% if form.province == "Oklahoma" %}selected{% endif %}>Oklahoma</option>
+  <option value="Oregon" {% if form.province == "Oregon" %}selected{% endif %}>Oregon</option>
+  <option value="Pennsylvania" {% if form.province == "Pennsylvania" %}selected{% endif %}>Pennsylvania</option>
+  <option value="Rhode Island" {% if form.province == "Rhode Island" %}selected{% endif %}>Rhode Island</option>
+  <option value="South Carolina" {% if form.province == "South Carolina" %}selected{% endif %}>South Carolina</option>
+  <option value="South Dakota" {% if form.province == "South Dakota" %}selected{% endif %}>South Dakota</option>
+  <option value="Tennessee" {% if form.province == "Tennessee" %}selected{% endif %}>Tennessee</option>
+  <option value="Texas" {% if form.province == "Texas" %}selected{% endif %}>Texas</option>
+  <option value="Utah" {% if form.province == "Utah" %}selected{% endif %}>Utah</option>
+  <option value="Vermont" {% if form.province == "Vermont" %}selected{% endif %}>Vermont</option>
+  <option value="Virginia" {% if form.province == "Virginia" %}selected{% endif %}>Virginia</option>
+  <option value="Washington" {% if form.province == "Washington" %}selected{% endif %}>Washington</option>
+  <option value="West Virginia" {% if form.province == "West Virginia" %}selected{% endif %}>West Virginia</option>
+  <option value="Wisconsin" {% if form.province == "Wisconsin" %}selected{% endif %}>Wisconsin</option>
+  <option value="Wyoming" {% if form.province == "Wyoming" %}selected{% endif %}>Wyoming</option>
+</select>

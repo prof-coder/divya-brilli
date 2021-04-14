@@ -1,0 +1,60 @@
+<section class="ProductScience ScrollSlideshow" data-section-id="{{ section.id }}">
+  {% assign fc_keys = shop.metafields.custom_fields["product_science_metrics"] | split: "," %}
+  {% assign cnt = fc_keys | size %}
+  <div class="inner">
+    <div class="top-copy">
+      <h2>{{ shop.metafields.custom_fields["product_science_title"] }}</h2>
+      {{ shop.metafields.custom_fields["product_science_description"] }}
+    </div>
+    <div class="ScientificMetrics" data-block-count="{{ cnt }}" >
+      <div class="inner">
+        <h3>{{ shop.metafields.custom_fields["product_science_metrics_title"] }}</h3>
+        {% if shop.metafields.custom_fields["product_science_metrics"] != blank %}
+        <div class="metrics-wrap">
+          <nav class="metrics-nav">
+            <ul>
+            {% assign separator = "|###|" %}
+            {% assign science_metric_title_array = shop.metafields.custom_fields["science_metric_title"] | split: separator %}
+            {% assign science_metric_description_array = shop.metafields.custom_fields["science_metric_description"] | split: separator %}
+            {% assign science_metric_icon_array = shop.metafields.custom_fields["science_metric_icon"] | split: separator %}
+            {% assign fc_keys = shop.metafields.custom_fields["product_science_metrics"] | split: "," %}
+            {% for i in fc_keys %}
+              {% assign index = i | plus: 0 %}
+              {% if index<10 %}
+              <li><button type="button" rel="{{index}}">0{{index | plus: 1}}</button></li>
+              {% else %}
+              <li><button type="button" rel="{{index}}">{{index | plus: 1}}</button></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </nav>
+          <div class="metrics-list">
+            {% assign separator = "|###|" %}
+            {% assign science_metric_title_array = shop.metafields.custom_fields["science_metric_title"] | split: separator %}
+            {% assign science_metric_description_array = shop.metafields.custom_fields["science_metric_description"] | split: separator %}
+            {% assign science_metric_icon_url_array = shop.metafields.custom_fields["science_metric_icon"] | split: separator %}
+            {% assign fc_keys = shop.metafields.custom_fields["product_science_metrics"] | split: "," %}
+            {% for i in fc_keys %}
+              {% assign index = i | plus: 0 %}
+              <div class="ScienceMetric">
+                  <div class="img-wrap">
+                    <img src="{{ science_metric_icon_array[index] }}" alt="{{ science_metric_title_array[index] }}" />
+                  </div>
+                  <div class="text-wrap">
+                    <h4>{{ science_metric_title_array[index] }}</h4>
+                    {{ science_metric_description_array[index] }}
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .ProductScience .ScientificMetrics {
+      height: calc(100vh * {{ cnt | plus: 1 }});
+    }
+  </style>
+</section>

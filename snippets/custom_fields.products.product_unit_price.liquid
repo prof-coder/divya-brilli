@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/products/configure/136591/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["product_unit_price"] != blank %}
+  <div class="custom-field custom-field__product-unit-price custom-field__type--text">
+    <h3 class="custom-field--title">Product Unit Price</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["product_unit_price"] }}
+    </div>
+  </div>
+{% endif %}

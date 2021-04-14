@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/products/configure/104576/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["product_special_instructions"] != blank %}
+  <div class="custom-field custom-field__product-special-instructions custom-field__type--html">
+    <h3 class="custom-field--title">Product Special Instructions</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["product_special_instructions"] }}
+    </div>
+  </div>
+{% endif %}

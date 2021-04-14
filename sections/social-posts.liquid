@@ -1,0 +1,69 @@
+<section class="SocialPosts">
+  <div class="inner">
+    <div class="top-copy">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="post-list">
+      {% assign count = 0 %}
+      {% assign sz = section.blocks | size %}
+      {% assign szMinusOne = sz | minus: 1 %}
+      {% for block in section.blocks %}
+        {% assign m = count | modulo: 4 %}
+        {% if m == 0 %} 
+        <div class="slide">
+          <div class="slide-inner">
+        {% endif %}
+        <a href="{{ block.settings.url }}" target="_blank" class="SocialPost">
+          <img src="{{ block.settings.image.src | img_url: '268x' }}" alt="Social Post"/>
+        </a>
+       
+        {% if m == 3 %}  
+        </div></div>
+        {% elsif count == szMinusOne %}
+        </div></div>
+        {% endif %}
+        {% assign count = count | plus: 1 %}
+      {% endfor %}
+    </div>
+    <div class="disclaimer">
+      <p>Connect with us <a href="https://www.instagram.com/bebrilli/" target="_blank" titl="@bebrilli">@beBrilli</a>.</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Social Posts", 
+    "presets": [
+      {
+        "name": "Featured Social Posts",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "post_item",
+        "name": "Post",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Post Image"
+          },
+          {
+            "type": "text",
+            "id": "url",
+            "label": "Post URL"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

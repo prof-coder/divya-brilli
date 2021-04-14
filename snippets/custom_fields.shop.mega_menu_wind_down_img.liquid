@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/146903/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["mega_menu_wind_down_img"] != blank %}
+  <div class="custom-field custom-field__mega-menu-wind-down-img custom-field__type--image">
+    <h3 class="custom-field--title">Mega Menu Wind Down Image</h3>
+    <div class="custom-field--value">  
+      {% include 'cf-image' with image: shop.metafields.custom_fields["mega_menu_wind_down_img"] %}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,30 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+{% assign image = page.metafields.custom_fields["hero_image"] %}
+{% assign mobile_image = page.metafields.custom_fields["hero_mobile_image"] %}
+{% assign hero_background_color = page.metafields.custom_fields["hero_background_color"] | downcase %}
+{% assign bg_color = hero_background_color | append: "-bg" %}
+{% assign custom_css_classes = page.metafields.custom_fields["hero_css_classes"] %}
+ 
+<section class="hero-image-with-text activate-scroll {{ bg_color }} {{ custom_css_classes }}">
+  {% include 'bars' %}
+  <div class="inner">
+    <div class="glow_bg"></div>
+    <div class="image__image">
+      {% if image != blank %}
+        <div class="image" style="background-image: url({{ image }})"></div>
+      {% endif %}
+    </div>
+  </div>
+</section>

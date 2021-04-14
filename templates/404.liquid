@@ -1,0 +1,18 @@
+<section class="image-with-text activate-scroll angle--bottom-right image-left mobile_image_below 404">
+
+  <div class="image__image">
+    <div class="circle circle_color_blue"></div>
+      <div class="image desktop" style="background-image: url({{ '404-desktop.png' | asset_img_url: '3000x3000' }})"></div>
+      <div class="image mobile" style="background-image: url({{ '404-desktop.png' | asset_img_url: '3000x3000' }})"></div>
+  </div>
+
+  <div class="image-with-text__text">
+    <div class="inner">
+      <h1>{{ 'general.404.title' | t }}</h1>
+      <p>{{ 'general.404.subtext_html' | t }}</p>
+    </div>
+  </div>
+
+</section>
+
+{% include 'SEOManager-404' %}

@@ -1,0 +1,105 @@
+<div class="modalwrap newsletter">
+  <div class="modal v-center">
+    <div class="modal-header">
+      <div class="site-logo">{{ store.name }}</div>
+      <a class="close">
+        <span class="line one"></span>
+        <span class="line two"></span>
+      </a>
+    </div>
+    <div class="modal-content main login">
+      <div class="holder form-holder">
+        {% assign list_id = settings.newsletter_list_id %}
+        <form id="email_popup_signup" class="klaviyo_styling klaviyo_gdpr_embed_{{ list_id }}" action="https://manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="https://manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+          <div>
+            <div class="logo">
+              <img src="{{ 'brilli-logo-newsletter.svg' | asset_url }}" alt="{{ shop.name }}" />
+            </div>
+            <h2>{{ section.settings.title }}</h2>
+            <p class="message">{{ section.settings.description }}</p>
+            <div class="klaviyo_field_group">
+              <input class="required email" type="email" value="" name="email" id="k_id_email" placeholder="{{ section.settings.placeholder }}"/>
+            </div>
+            <div class="klaviyo_form_actions">
+              <button type="submit" class="klaviyo_submit_button button">{{ section.settings.cta }}</button>
+              <button type="submit" class="button outline close">{{ section.settings.cta-cancel }}</button>
+            </div>
+          </div>
+          <input type="hidden" name="g" value="{{ list_id }}">
+          <input type="hidden" name="$fields" value="$consent">
+          <input type="hidden" name="$list_fields" value="$consent">
+          <div class="klaviyo_messages">
+            <div class="success_message" style="display:none;"></div>
+            <div class="error_message" style="display:none;"></div>
+          </div> 
+        </form>
+        <script type="text/javascript">
+         KlaviyoSubscribe.attachToForms('#email_popup_signup', {
+          hide_form_on_success: true,
+          success_message: "{{ section.settings.thankyou }}",
+          extra_properties: {
+             $source: '$embed',
+             $method_type: "Klaviyo Form",
+             $method_id: 'embed',
+             $consent_version: 'Embed default text'
+          }
+         });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Newsletter Overlay",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Sign up"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Sign up"
+      },
+      {
+        "type": "text",
+        "id": "placeholder",
+        "label": "Placeholder",
+        "default": "Sign up"
+      },
+      {
+        "type": "text",
+        "id": "cta",
+        "label": "Call to Action",
+        "default": "Sign up"
+      },
+      {
+        "type": "text",
+        "id": "cta-cancel",
+        "label": "Cancel Call to Action",
+        "default": "No Thanks"
+      },
+      {
+        "type": "text",
+        "id": "thankyoutitle",
+        "label": "Thank You Title",
+        "default": "Thank you!",
+        "placeholder": "Thank you title"
+      },
+      {
+        "type":      "textarea",
+        "id":        "thankyou",
+        "label":     "Thank You Message",
+        "default":   "You have been added to our newsletter.",
+        "info":      "Text",
+        "placeholder": "Thank you message"
+      }
+    ]
+  }
+
+{% endschema %}

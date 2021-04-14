@@ -1,0 +1,55 @@
+{% assign all_products = collections['all-products'].products %}
+<script type="text/javascript">
+
+  var LOCAL_PRODUCTS = {};
+
+  {% for product in all_products %}
+    {% assign thumb_url = product.featured_image | img_url: '1700x' %}
+    {% for image in product.images %}
+      {% if image.alt contains "overlay" %}
+        {% assign front_url = image | img_url: '1700x' %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if product.metafields.custom_fields["fun_name"] != blank %}
+      {% assign title = product.metafields.custom_fields["fun_name"] %}
+    {% else %}
+      {% assign title = product.title %}
+    {% endif %}
+
+    {% if product.metafields.custom_fields["package_type"] != blank %}
+      {% assign package_type = product.metafields.custom_fields["package_type"] %}
+    {% endif %}
+    {% assign excerpt = product.metafields.custom_fields["excerpt"] %}
+    {% for image in product.images %}
+      {% if image.alt contains "exploded" %}
+        {% assign front = image | img_url: '1700x' %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% assign handle = product.handle %}
+    {% if product.metafields.custom_fields["list_title"] != blank %}
+      {% assign list_title = product.metafields.custom_fields["list_title"] %}
+    {% else %}
+      {% assign list_title = product.title %}
+    {% endif %}
+
+    {% if product.metafields.custom_fields["fun_name"] != blank %}
+      {% assign shortTitle = product.metafields.custom_fields["fun_name"] %}
+    {% endif %}
+
+    {% assign title = product.title | replace: '"', '\"' %}
+    {% assign thumb_url = product.featured_image | img_url: '1700x' %}
+    {% assign quarterly_price = "" %}
+    {% assign product_id = product.id %}
+      LOCAL_PRODUCTS["{{product_id}}"] = { productId: "{{product_id}}", thumb_url: "{{thumb_url}}", front_url: "{{front_url}}", title: "{{title}}", shortTitle: "{{shortTitle}}", handle: "{{handle}}", url: "{{product.url}}", package_type: "{{package_type}}", type: "{{product.type}}",price: "{{product.price | money}}", excerpt:"{{excerpt | strip_html | url_escape}}", availableForPurchase: {{product.available}},variants:[
+          {% assign cnt = 0 %}
+          {% for v in product.variants %}
+            {variantId: "{{v.id}}", productId: "{{product_id}}", price: "{{v.price | money}}", option1: "{{v.option1}}", option2: "{{v.option2}}", option3: "{{v.option3}}", available: {{v.available}}, detailTitle: "{{v.metafields.custom_fields['product_detail_name']}}", title: "{{v.metafields.custom_fields['product_cart_name']}}", unitPrice: "{{v.metafields.custom_fields['product_unit_price']}}", name: "{{v.name}}" },
+            {% assign cnt = cnt | plus: 1 %}
+          {% endfor %}
+        ] }
+  {% endfor %}
+  var SHOP_PERMANENT_DOMAIN = '{{ shop.permanent_domain }}';
+  var CUSTOMER_PARAMS = '{% if customer %}customer_id={{customer.id}}&customer_email={{customer.email}}{% endif %}';
+</script>

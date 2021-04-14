@@ -1,0 +1,9 @@
+<section class="BlogHeroCarousel">
+  <div class="slideshow">
+    {% for article in blog.articles %}
+      {% if article.tags contains 'Featured' %}
+      {% include 'blog-hero-slide' %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

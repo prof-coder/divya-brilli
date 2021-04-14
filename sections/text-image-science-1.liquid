@@ -1,0 +1,104 @@
+<section class="HomeHeroscience1">
+  <div class="inner2 content_width">
+    <div class="image__image1">
+        {% if section.settings.image != blank %}
+          <div class="image">
+            <img src="{{section.settings.image | img_url: '1024x' }}"/>
+          </div>
+        {% else %}
+          
+        {% endif %}
+    </div>
+
+      <div class="image-with-text__text1">
+        <div class="inner2 padding_custom1">
+          <div class="title-holder ">
+            {% if section.settings.subtitle != blank %}
+            <h2><small>{{ section.settings.subtitle }}</small></h2>
+            {% endif %}
+            {% if section.settings.title != blank %}
+            <h2><small>{{ section.settings.title }}</small></h2>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              {{ section.settings.text }}
+            {% endif %}
+            {% if section.settings.title1 != blank %}
+            <h2><small>{{ section.settings.title1 }}</small></h2>
+            {% endif %}
+            {% if section.settings.text1 != blank %}
+              {{ section.settings.text1 }}
+            {% endif %}
+             {% if section.settings.title2 != blank %}
+            <h2><small>{{ section.settings.title2 }}</small></h2>
+            {% endif %}
+            {% if section.settings.text2 != blank %}
+              {{ section.settings.text2 }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Text Image",
+    "presets": [
+      {
+        "name": "Text Image",
+        "category": "Science"
+      }
+    ],
+    "settings": [
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub-Title"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },    
+	  {
+        "type": "text",
+        "id": "title1",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text1",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },    
+	  {
+        "type": "text",
+        "id": "title2",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text2",
+        "label": "Text"
+	  },  
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      }
+    ]
+  }
+{% endschema %}

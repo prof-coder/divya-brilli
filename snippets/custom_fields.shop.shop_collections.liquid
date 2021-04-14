@@ -1,0 +1,21 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/100296/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["shop_collections"] != blank %}
+  <div class="custom-field custom-field__shop-collections custom-field__type--collection-reference">
+    <h3 class="custom-field--title">Shop Collections</h3>
+    <div class="custom-field--value">  
+      {% assign collection_refs = shop.metafields.custom_fields["shop_collections"] | split: "|" %}
+      <ul>
+        {% for collection_handle in collection_refs %}
+          <li>
+            {% assign collection_ref = collections[collection_handle] %}
+            {{ collection_ref.title | link_to: collection_ref.url }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

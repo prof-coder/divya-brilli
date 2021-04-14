@@ -1,0 +1,13 @@
+{% assign angle-classes = '' %}
+{% if section.settings.angle_top != blank %}
+  
+  {% if section.settings.angle_bottom != blank %}
+    {% assign angle-classes = 'angle--both-left-right' %}
+  {% else %}
+    {% assign angle-classes = 'angle--top-left' %}
+  {% endif %}
+{% else %}
+  {% if section.settings.angle_bottom != blank %}
+    {% assign angle-classes = 'angle--bottom-right' %}
+  {% endif %}
+{% endif %}

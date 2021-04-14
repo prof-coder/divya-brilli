@@ -1,0 +1,84 @@
+<section class="HomeHeroscience">
+  <style>
+    .HomeHeroscience .image__image .image {
+      background-image: url({{section.settings.mobile_image | img_url: 'master' }}) !important;
+    }
+
+    @media(min-width: 768px){
+      .HomeHeroscience .image__image .image {
+        background-image: url({{section.settings.image | img_url: 'master' }}) !important;
+      }      
+    }
+  </style>
+  <div class="inner content_width">
+    <div class="image__image sameheight">
+        {% if section.settings.image != blank %}
+          <div class="image"></div>
+        {% else %}
+          
+        {% endif %}
+    </div>
+
+      <div class="image-with-text__text sameheight">
+        <div class="inner">
+          <div class="title-holder width___science1">
+            {% if section.settings.subtitle != blank %}
+              <h2>{{ section.settings.subtitle }}</h2>
+            {% endif %}
+            {% if section.settings.title != blank %}
+              <h1>{{ section.settings.title }}</h1>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              {{ section.settings.text }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Science Hero Right Image",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub-Title"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },      
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      }
+    ],
+    "presets": [{
+        "name": "Science Hero Right Image",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

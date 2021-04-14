@@ -1,0 +1,106 @@
+<section class="BrilliFeatures">
+	<div class="inner">
+    {% if section.settings.image != blank %}
+    <div class="image-wrap">
+      <img src="{{ section.settings.image.src | img_url: 'master'}}" alt="Brilli Benefits" class="desktop"/>
+      <img src="{{ section.settings.mobile_image.src | img_url: 'master'}}" alt="Brilli Benefits" class="mobile"/>
+    </div>
+    {% endif %}
+    <div class="text-wrap">
+      {% unless section.settings.title == blank %}
+  		<div class="top-copy">
+        <h2>{{ section.settings.title }}</h2>
+        {{ section.settings.text }}
+      </div>
+      {% endunless %}
+      <div class="subtitle">
+        <h3>{{ section.settings.subtitle }}</h3>
+      </div>
+      <div class="features-list">
+        {% for block in section.blocks %}
+      	<div class="FeatureColumn">
+      		<div class="image-wrap">
+            <img src="{{ block.settings.image.src | img_url: 'original' }}" alt="Social Post"/>
+      		</div>
+      		<div class="text-wrap">
+            <h4>{{ block.settings.feature_title }}</h4>
+            {{ block.settings.feature_text }}
+      		</div>
+      	</div>
+        {% endfor %}
+     	</div>
+    </div>
+	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Brilli Features", 
+    "presets": [
+      {
+        "name": "Brilli Features",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "CTA Label"
+      },
+      {
+        "type": "text",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature_item",
+        "name": "Feature",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Post Image"
+          },
+          {
+            "type": "text",
+            "id": "feature_title",
+            "label": "Feature Title"
+          },
+          {
+            "type": "richtext",
+            "id": "feature_text",
+            "label": "Feature Description"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

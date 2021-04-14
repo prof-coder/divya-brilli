@@ -1,0 +1,116 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Collection list" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the collection list section
+  - Collection
+{%- endcomment -%}
+<section class="CollectionList">
+  <div class="inner">
+    <div class="top-copy">
+      {% if section.settings.title != blank %}
+        <h2 class="collection-list__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {%- if section.settings.text != blank -%}
+        <div class="rte">
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="collection-items">
+      {% for block in section.blocks %}
+        {%- assign collection = collections[block.settings.collection] -%}
+        <div class="CollectionListItem {{ collection.handle }}" {{ block.shopify_attributes }}>
+          <a href="/collections/#{{ collection.handle }}">
+            <div class="img-wrap">
+              {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+              <div class="image" style="background-image: url('{{ image_object.src | img_url: '1304x' }}')">
+                <img src="{{ image_object.src | img_url: '1304x' }}"/>
+              </div>
+            </div>
+            <div class="text-wrap">
+              {% if block.settings.title != blank %}
+              <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+              {%- if block.settings.text != blank -%}
+                  {{ block.settings.text }}
+              {%- endif -%}
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+
+      {% if section.blocks.size == 0 %}
+        {% include 'no-blocks' %}
+      {% endif %}
+
+      
+    </div>
+    <a href="/collections" class="button outline large">Shop all Collections</a>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Collection list"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Collection Title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your collection.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection list",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,37 @@
+{% if product.metafields.custom_fields["benefit_collection"] != blank %}
+  {% assign collection_ref = collections[product.metafields.custom_fields["benefit_collection"]] %}
+{% endif %}
+{% if collection_ref != blank %}
+<section class="ProductCollectionBenefits image-with-text2 image-right" data-section-id="{{ section.id }}">
+  <div class="inner">
+    {% if product.metafields.custom_fields["benefit_collection_hero_image"] != blank %}
+      <div class="image__image" data-animation-frame-count="{{animation_frame_count}}">
+        <img src="{{ product.metafields.custom_fields["benefit_collection_hero_image"] }}" alt="{{ collection_ref.metafields.custom_fields["benefit_collection_title"] }}"/>
+      </div>
+    {% endif %}
+    <div class="image-with-text__text">
+      <div class="inner">
+        <h2>  {{ collection_ref.metafields.custom_fields["benefit_collection_title"] }}</h2>
+        <div class="wysiwyg">
+          {{ collection_ref.metafields.custom_fields["benefit_collection_description"] }}
+        </div>
+        <div class="BenefitsGrid col3">
+          <ul>
+            {% assign separator = "|###|" %}
+            {% assign benefit_collection_icon_label_array = collection_ref.metafields.custom_fields["benefit_collection_icon_label"] | split: separator %}
+            {% assign benefit_collection_icon_image_array = collection_ref.metafields.custom_fields["benefit_collection_icon_image"] | split: separator %}
+            {% assign fc_keys = collection_ref.metafields.custom_fields["benefit_collection_icons"] | split: "," %}
+            {% for i in fc_keys %}
+              {% assign index = i | plus: 0 %}
+              <li class="benefit benefit-{{ index }}">
+                <img src="{{ benefit_collection_icon_image_array[index] }}" alt="{{ benefit_collection_icon_label_array[index] }}"/>
+                <h3>{{ benefit_collection_icon_label_array[index] }}</h3>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

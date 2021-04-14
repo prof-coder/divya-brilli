@@ -1,0 +1,346 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available in the "Header" section in the theme editor.
+
+  Theme Store required settings
+  - Show announcement
+  - Text: message to announce
+  - Link: link of the announcement bar
+
+  Theme Store optional settings
+  - Home page only: only shows osn the home page
+{%- endcomment -%}
+<section data-section-id="{{ section.id }}" data-section-type="header">
+  {%- if settings.announcement_bar_enabled -%}
+    {%- if settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
+      <div class="announcement-bar">
+      {%- if settings.announcement_bar_link != blank -%}
+        <p><a href="{{ settings.announcement_bar_link }}">
+          {{ settings.announcement_bar_text }}
+        </a></p>
+      {%- else -%}
+        <p>{{ settings.announcement_bar_text }}</p>
+      {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+  <header role="banner" id="SiteHeader">
+
+    <div id="branding">
+      <a href="/" class="logo">
+        {{ shop.name }}
+      </a>
+    </div>
+    <nav id="main-menu" role="navigation">
+      <div id="mobile-search" class="search {% if search.performed %}search-open{%endif%}">
+        <form action="/search" method="get" role="search">
+          <input type="hidden" name="type" value="product">
+          <label for="Search-{{ section.id }}" class="visually-hidden">Search</label>
+          <input type="text" value="{{ search.terms | escape }}" name="q" id="Search-{{ section.id }}" placeholder="{{ 'general.search.placeholder' | t }}">
+        </form>
+      </div>
+      <ul class="menu main-menu desktop">
+      {% for link in linklists[section.settings.menu].links %}
+          {% if link.links != blank %}
+            {% assign template_name = template.name | lowercase %}
+            {% assign ptitle = page.title | lowercase %}
+            {% assign btitle = blog.title | lowercase %}
+            {% assign ltitle = link.title | lowercase %}
+            {% if template_name == 'list-collections' and ltitle == 'Shop' %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif template_name == 'collection' and ltitle == 'Shop' %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif template_name == 'product' and ltitle == 'Shop' %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif ptitle == ltitle %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif btitle == ltitle %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% else %}
+
+              {% assign hasActiveChild = false %}
+              {% for child_link in link.links %}
+                {% assign ctitle = child_link.title | lowercase %}
+                {% if ctitle == ptitle %}
+                {% assign hasActiveChild = true %}
+                {% break %}
+                {% elsif child_link.current %}
+                {% assign hasActiveChild = true %}
+                {% break %}
+                {% endif %}
+              {% endfor %}
+
+              {% if hasActiveChild %}
+                <li class="menu-item-has-children current_page_item current-menu-item">
+              {% else %}
+                <li class="menu-item-has-children">
+              {% endif %}
+
+            {% endif %}
+              <a href="{{ link.url }}" class="taphover {{ link.handle }}" rel="{{ link.handle }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% else %}
+            {% assign ptitle = page.title | lowercase %}
+            {% assign btitle = blog.title | lowercase %}
+            {% assign ltitle = link.title | lowercase %}
+            {% if link.current == true %}
+            <li class="current_page_item">
+            {% elsif btitle== ltitle %}
+            <li class="current_page_item">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="{{ link.url }}" class="taphover">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      <ul class="menu main-menu mobile">
+      {% for link in linklists[section.settings.mobile-menu].links %}
+          {% if link.links != blank %}
+            {% assign template_name = template.name | lowercase %}
+            {% assign ptitle = page.title | lowercase %}
+            {% assign btitle = blog.title | lowercase %}
+            {% assign ltitle = link.title | lowercase %}
+            {% if template_name == 'list-collections' and ltitle == 'Shop' %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif template_name == 'collection' and ltitle == 'Shop' %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif template_name == 'product' and ltitle == 'Shop' %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif ptitle == ltitle %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% elsif btitle == ltitle %}
+            <li class="menu-item-has-children current_page_item current-menu-item">
+            {% else %}
+
+              {% assign hasActiveChild = false %}
+              {% for child_link in link.links %}
+                {% assign ctitle = child_link.title | lowercase %}
+                {% if ctitle == ptitle %}
+                {% assign hasActiveChild = true %}
+                {% break %}
+                {% elsif child_link.current %}
+                {% assign hasActiveChild = true %}
+                {% break %}
+                {% endif %}
+              {% endfor %}
+
+              {% if hasActiveChild %}
+                <li class="menu-item-has-children current_page_item current-menu-item">
+              {% else %}
+                <li class="menu-item-has-children">
+              {% endif %}
+
+            {% endif %}
+              <a href="{{ link.url }}" class="taphover {{ link.handle }}" rel="{{ link.handle }}">
+                {{ link.title }}
+              </a>
+
+              {% if link.links != blank %}
+                {% include "mobile-nav-arrow" %}
+                <div class="subnav-wrap">
+                  <ul class="sub-menu">
+                    {% for child_link in link.links %}
+
+                    {% assign slug = child_link.handle | replace: "-", "_" %}
+                    {% assign subtitle_str = "mega_menu_" | append: slug | append: "_subt" %}
+                    {% assign image_str = "mm_" | append: slug | append: "_img_m" %}
+                    {% assign webp_image_str = "mm_" | append: slug | append: "_img_url_m" %}
+
+                    {% if shop.metafields.custom_fields[subtitle_str] != blank%}
+                    <li class="product-collection">
+                    {% else %}
+                    <li>
+                    {% endif %}
+                      {% assign classes = "" %}
+                      {% if child_link.current == true %}
+                      {% assign classes = "current_page_item current-menu-item" %}
+                      {% endif %}
+
+                      {% if shop.metafields.custom_fields[subtitle_str] != blank%}
+                        <a href="{{ child_link.url }}" class="{{ classes }}">
+                          <div class="text-wrap">
+                            <h3>{{ child_link.title }}</h3>
+                            <p>{{ shop.metafields.custom_fields[subtitle_str] }}</p>
+                          </div>
+                          <div class="image-wrap">
+                            <picture>
+                              <source srcset="{{ shop.metafields.custom_fields[webp_image_str] }}" type="image/webp">
+                              {{ shop.metafields.custom_fields[image_str] }}
+                            </picture>
+                          </div>
+                        </a>
+                      {% else %}
+                        <a href="{{ child_link.url }}" class="{{ classes }}">{{ child_link.title }}</a>
+                      {% endif %}
+                    </li>
+                    {% endfor %}
+                    {% if link.handle == 'shop' %}
+                    <li class="product-collection"><a href="/collections" class="button outline">Shop all</a></li>
+                    {% endif %}
+                  </ul> 
+
+                </div>
+              {% endif %} 
+            </li>
+          {% else %}
+            {% assign ptitle = page.title | lowercase %}
+            {% assign btitle = blog.title | lowercase %}
+            {% assign ltitle = link.title | lowercase %}
+            {% if link.current == true %}
+            <li class="current_page_item">
+            {% elsif btitle== ltitle %}
+            <li class="current_page_item">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="{{ link.url }}" class="taphover">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>      
+    </nav>
+
+    <div id="utility-links">
+        <ul>
+          <li class="search-wrap">
+            <a href="#" class="search-btn">
+              {% include 'icon-search' %}
+            </a>
+            <div id="desktop-search" class="search {% if search.performed %}search-open{%endif%}">
+              <form action="/search" method="get" role="search">
+                <input type="text" value="{{ search.terms | escape }}" name="q" id="Search-{{ section.id }}" placeholder="{{ 'general.search.placeholder' | t }}">
+                <input type="hidden" name="type" value="product"/>
+              </form>
+              <a class="search-close" href="#">
+                <span class="line one"></span>
+                <span class="line two"></span>
+              </a>
+            </div>
+          </li>
+          <li class="customer-wrap">
+            {% if customer %}
+            <a href="/account" title="Account">
+              {% include 'icon-account' %}
+            </a>
+            {% else %}
+            <a href="/account/login" class="login" title="Login">
+              {% include 'icon-account' %}
+            </a>
+            {% endif %}
+          </li>
+          <li class="cart-wrap">
+            <a class="cart-btn" href="/cart">
+              <span class="count" style="display: none;"></span>
+              {% include 'icon-cart' %}
+            </a>
+          </li>
+        </ul>
+      </div>  
+
+
+    <nav id="sub-menu" role="navigation">
+      {% for link in linklists[section.settings.menu].links %}
+
+        {% if link.links != blank %}
+
+          {% assign template_name = template.name | lowercase %}
+          {% assign ptitle = page.title | lowercase %}
+          {% assign btitle = blog.title | lowercase %}
+          {% assign ltitle = link.title | lowercase %}
+            {% if link.links != blank %}
+              {% include "mega-submenu" %}
+            {% endif %} 
+        {% endif %}
+
+      {% endfor %}
+    </nav>
+
+    <span class="hamburger">
+      <span class="line one"></span>
+      <span class="line two"></span>
+      <span class="line three"></span>
+      <span class="line four"></span>
+    </span>
+  </header>
+</section>
+
+{% if section.settings.logo != blank %}
+  <style>
+    .logo-image {
+      display: block;
+      max-width: {{ section.settings.logo_max_width }}px;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile-menu",
+        "label": "Mobile Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": "https:{{ section.settings.logo | img_url: image_size }}",
+  {% endif %}
+  "sameAs": [
+    "{{ settings.social_twitter_link }}",
+    "{{ settings.social_facebook_link }}",
+    "{{ settings.social_pinterest_link }}",
+    "{{ settings.social_instagram_link }}",
+    "{{ settings.social_tumblr_link }}",
+    "{{ settings.social_snapchat_link }}",
+    "{{ settings.social_youtube_link }}",
+    "{{ settings.social_vimeo_link }}"
+  ],
+  "url": "{{ shop.url }}{{ page.url }}"
+}
+</script>
+
+{% if template.name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}

@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/145749/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["product_science_description"] != blank %}
+  <div class="custom-field custom-field__product-science-description custom-field__type--html">
+    <h3 class="custom-field--title">Product Science Description</h3>
+    <div class="custom-field--value">
+      {{ shop.metafields.custom_fields["product_science_description"] }}
+    </div>
+  </div>
+{% endif %}

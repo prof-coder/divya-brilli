@@ -1,0 +1,26 @@
+<div class="BlogTags">
+  {% if blog.tags.size > 0 %}
+    <ul class="tags">
+
+      {% assign blog_handle = template.name | handle %}
+      {% unless blog_handle == 'blog'%}
+        <li>
+          <a href="{{ blog.url }}">Blog Home</a>
+        </li>
+      {% endunless %}
+
+      {% unless current_tags == blank %}
+        <li>
+          <a href="{{ blog.url }}">Blog Home</a>
+        </li>
+      {% endunless %}
+      {% for tag in blog.tags %}
+        {% unless tag == 'Featured' %}
+        <li>
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+        </li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

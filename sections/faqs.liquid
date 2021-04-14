@@ -1,0 +1,53 @@
+<section class="Faqs" data-section-id="{{ section.id }}" >
+  <div class="inner">
+    <div class="glow_bg"></div>
+    <h2>{{ section.settings.title }}</h2>
+    <dl class="accordion">
+      {% for block in section.blocks %}
+      <dt class=""><a href="">{{ block.settings.title }}</a></dt>
+      <dd style="display: none;">
+        {{ block.settings.text }}
+      </dd>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "FAQs",
+    "presets": [
+      {
+        "name": "FAQs",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq_item",
+        "name": "FAQ Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+      

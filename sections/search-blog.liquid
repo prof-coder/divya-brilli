@@ -1,0 +1,26 @@
+{% assign article_cnt = 0 %}
+{% for item in search.results %}
+    {% if item.object_type == 'article' %}
+    {% assign article = item %}
+      {% if article.url contains 'brilli' %}
+        {% assign article_cnt = article_cnt | plus: 1 %}    
+      {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% if article_cnt > 0 %}
+<section class="SearchResults blog">
+  <h2>Articles ({{ article_cnt }})</h2>
+  <hr/>
+  <div class="grid">
+    {% for item in search.results %}
+        {% if item.object_type == 'article' %}
+          {% assign article = item %}
+          {% if article.url contains 'brilli' %}
+            {% include 'blog-entry' %}  
+          {% endif %}
+        {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

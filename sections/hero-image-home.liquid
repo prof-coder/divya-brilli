@@ -1,0 +1,95 @@
+<section class="HomeHero">
+  <style>
+    .HomeHero .image__image .image {
+      background-image: url('{{section.settings.mobile_image | img_url: 'master' }}');
+    }
+
+    @media(min-width: 768px){
+      .HomeHero .image__image .image {
+        background-image: url('{{section.settings.image | img_url: 'master' }}');
+      }      
+    }
+  </style>
+  <div class="inner">
+    <a {% if section.settings.button_url != blank %}href="{{ section.settings.button_url}}" >{% endif %}
+      <div class="image__image">
+        {% if section.settings.image != blank %}
+          <div class="image"></div>
+        {% else %}
+          
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__text">
+        <div class="inner">
+          <div class="title-holder">
+            {% if section.settings.title != blank %}
+              <h1>{{ section.settings.title }}</h1>
+            {% endif %}
+            {% if section.settings.text != blank %}
+              {{ section.settings.text }}
+            {% endif %}
+            {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+              <span class="button outline large">
+                {{ section.settings.button_label }}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Home Hero",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      }
+    ],
+    "presets": [{
+        "name": "Home Hero",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

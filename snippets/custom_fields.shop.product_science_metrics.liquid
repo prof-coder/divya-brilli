@@ -1,0 +1,35 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/145751/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["product_science_metrics"] != blank %}
+  <div class="custom-field custom-field__product-science-metrics custom-field__type--field-collection">
+    <h3 class="custom-field--title">Product Science Metrics</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign science_metric_title_array = shop.metafields.custom_fields["science_metric_title"] | split: separator %}
+      {% assign science_metric_description_array = shop.metafields.custom_fields["science_metric_description"] | split: separator %}
+      {% assign science_metric_icon_array = shop.metafields.custom_fields["science_metric_icon"] | split: separator %}
+      {% assign science_metric_icon_url_array = shop.metafields.custom_fields["science_metric_icon_url"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["product_science_metrics"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__science-metric-title">
+            {{ science_metric_title_array[index] }}
+          </div>
+          <div class="fc-field field__science-metric-description">
+            {{ science_metric_description_array[index] }}
+          </div>
+          <div class="fc-field field__science-metric-icon">
+            {{ science_metric_icon_array[index] }}
+          </div>
+          <div class="fc-field field__science-metric-icon-url">
+            {{ science_metric_icon_url_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,364 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+
+{% include 'image-with-text-base' %}
+
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "background-color",
+        "label": "Background color",
+        "default": "white-bg",
+        "options": [
+          {
+            "value": "white-bg",
+            "label": "White"
+          },
+          {
+            "value": "tan-bg",
+            "label": "Tan"
+          },
+          {
+            "value": "blue-bg",
+            "label": "Blue"
+          },
+          {
+            "value": "gray-bg",
+            "label": "Gray"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "line-style",
+        "label": "Line Style",
+        "default": "line-style1",
+        "options": [
+          {
+            "value": "line-style1",
+            "label": "Style 1"
+          },
+          {
+            "value": "line-style2",
+            "label": "Style 2"
+          },
+          {
+            "value": "line-style3",
+            "label": "Style 3"
+          },
+          {
+            "value": "line-style4",
+            "label": "Style 4"
+          },
+          {
+            "value": "line-style5",
+            "label": "Style 5"
+          },
+          {
+            "value": "line-style6",
+            "label": "Style 6"
+          },
+          {
+            "value": "line-style7",
+            "label": "Style 7"
+          },
+          {
+            "value": "line-style8",
+            "label": "Style 8"
+          },
+          {
+            "value": "line-style9",
+            "label": "Style 9"
+          },
+          {
+            "value": "line-style10",
+            "label": "Style 10"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "checkbox",
+        "id": "angle_top",
+        "label": "Angled Top"
+      },
+      {
+        "type": "checkbox",
+        "id": "angle_bottom",
+        "label": "Angled Bottom"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_circle",
+        "label": "Display Circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "circle_small",
+        "label": "Small Circle"
+      },
+      {
+        "type": "select",
+        "id": "mobile_text_position_style",
+        "label": "Mobile Text Position",
+        "default": "mobile_text_position_left_center",
+        "options": [
+          {
+            "value": "mobile_text_position_left_center",
+            "label": "Left/Center"
+          },
+          {
+            "value": "mobile_text_position_right_center",
+            "label": "Right/Center"
+          },
+          {
+            "value": "mobile_text_position_left_top",
+            "label": "Left/Top"
+          },
+          {
+            "value": "mobile_text_position_right_top",
+            "label": "Right/Top"
+          },
+          {
+            "value": "mobile_text_position_center_top",
+            "label": "Center/Top"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "mobile_text_alignment",
+        "label": "Mobile Text Alignment",
+        "default": "mobile_text_alignment_left",
+        "options": [
+          {
+            "value": "mobile_text_alignment_left",
+            "label": "Left"
+          },
+          {
+            "value": "mobile_text_alignment_center",
+            "label": "Center"
+          },
+          {
+            "value": "mobile_text_alignment_right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "mobile_image_size",
+        "label": "Mobile Image Size",
+        "default": "mobile_image_size_small",
+        "options": [
+          {
+            "value": "mobile_image_size_extra_small",
+            "label": "Extra Small"
+          },
+          {
+            "value": "mobile_image_size_small",
+            "label": "Small"
+          },
+          {
+            "value": "mobile_image_size_medium",
+            "label": "Medium"
+          },
+          {
+            "value": "mobile_image_size_large",
+            "label": "Large"
+          },
+          {
+            "value": "mobile_image_size_extra_large",
+            "label": "Extra Large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "circle_color",
+        "label": "Circle Color",
+        "default": "circle_color_yellow",
+        "options": [
+          {
+            "value": "circle_color_yellow",
+            "label": "Yellow"
+          },
+          {
+            "value": "circle_color_blue",
+            "label": "Blue"
+          },
+          {
+            "value": "circle_color_white",
+            "label": "White"
+          },
+          {
+            "value": "circle_color_tan",
+            "label": "Tan"
+          },
+          {
+            "value": "circle_color_green",
+            "label": "Green"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "circuit_style",
+        "label": "Circuit Style",
+        "default": "circuit_style_none",
+        "options": [
+          {
+            "value": "circuit_style_none",
+            "label": "None"
+          },
+          {
+            "value": "circuit_style_top",
+            "label": "Top"
+          },
+          {
+            "value": "circuit_style_bottom",
+            "label": "Bottom"
+          },
+          {
+            "value": "circuit_style_left",
+            "label": "Left"
+          },
+          {
+            "value": "circuit_style_center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "bulb_style",
+        "label": "Bulb Style",
+        "default": "bulb_style_none",
+        "options": [
+          {
+            "value": "bulb_style_none",
+            "label": "None"
+          },
+          {
+            "value": "bulb_style_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "bulb_style_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "bulb_style_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "animation_style",
+        "label": "Animation Style",
+        "default": "animation_style_none",
+        "options": [
+          {
+            "value": "animation_style_none",
+            "label": "None"
+          },
+          {
+            "value": "animation_style_small_sprite",
+            "label": "Small Sprite"
+          },
+          {
+            "value": "animation_style_full_sprite",
+            "label": "Full Sprite"
+          }
+        ]
+      }, 
+      {
+        "type": "range",
+        "id": "animation_frame_count",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "label":     "Frame Count",
+        "default": 1
+      },
+      {
+        "type": "text",
+        "id": "custom_css_classes",
+        "label": "Custom CSS Classes (Advanced)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

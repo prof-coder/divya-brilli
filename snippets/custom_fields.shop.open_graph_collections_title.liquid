@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/118291/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["open_graph_collections_title"] != blank %}
+  <div class="custom-field custom-field__open-graph-collections-title custom-field__type--text">
+    <h3 class="custom-field--title">Open Graph Collections Title</h3>
+    <div class="custom-field--value">
+      {{ shop.metafields.custom_fields["open_graph_collections_title"] }}
+    </div>
+  </div>
+{% endif %}

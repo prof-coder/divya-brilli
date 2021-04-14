@@ -1,0 +1,28 @@
+{{ collection_ref.metafields.custom_fields["benefit_section_title"] }}
+
+{% if product.metafields.custom_fields["benefit_collection"] != blank %}
+  {% assign collection_ref = collections[product.metafields.custom_fields["benefit_collection"]] %}
+{% endif %}
+
+
+{% if collection_ref != blank %}
+
+<section class="ProductBestResults image-with-text2 image-left" data-section-id="{{ section.id }}"  >
+  <div class="inner">
+    <div class="glow_bg"></div>
+    {% if product.metafields.custom_fields["benefit_collection_hero_image"] != blank %}
+      <div class="image__image" data-animation-frame-count="{{animation_frame_count}}">
+        <img src="{{ product.metafields.custom_fields["best_results_image"] }}" alt="{{ product.metafields.custom_fields["best_results_image_alt"] }}" />
+      </div>
+    {% endif %}
+    <div class="image-with-text__text">
+      <div class="inner">
+        <h2>{{ collection_ref.metafields.custom_fields["best_results_title"] }}</h2>
+        <div class="wysiwyg">
+          {{ collection_ref.metafields.custom_fields["best_results_content"] }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %} 

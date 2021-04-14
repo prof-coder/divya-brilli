@@ -1,0 +1,117 @@
+<section class="LifeWithBrilli ScrollSlideshow" data-section-id="{{ section.id }}">
+  {% assign cnt = section.blocks | size %}
+  <div class="inner">
+    <div class="ScrollContainer" data-block-count="{{ cnt }}" >
+      <div class="inner">
+        {% if shop.metafields.custom_fields["product_science_metrics"] != blank %}
+        <div class="top-copy">
+          <h2>{{ section.settings.title }}</h2>
+          {{ section.settings.text }}
+        </div>
+        <div class="metrics-wrap">
+
+          <nav class="metrics-nav">
+            <ul>
+            {% assign index = 0 %}
+            {% for block in section.blocks %}
+              {% assign index = index | plus: 1 %}
+              {% if index<10 %}
+              <li><button type="button" rel="{{index | minus: 1}}" style="background-image: url({{block.settings.benefiticonurl}})">0{{index}}</button></li>
+              {% else %}
+              <li><button type="button" rel="{{index | minus: 1}}" style="background-image: url({{block.settings.benefiticonurl}})">{{index}}</button></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </nav>
+          <div class="metrics-list">
+            {% for block in section.blocks %}
+              {% assign index = i | plus: 0 %}
+              <div class="ScienceMetric">
+                  <div class="img-wrap">
+                    <img src="{{ block.settings.benefitimage | img_url: 'original' }}" alt="{{ block.settings.benefittitle }}" />
+                  </div>
+                  <div class="text-wrap">
+                    <h4>{{ block.settings.benefittitle }}</h4>
+                    {{ block.settings.benefittext }}
+                    {% unless block.settings.benefiturl %}
+                    <a href="{{block.settings.benefiturl}}">{{block.settings.benefitbuttonlabel}}</a>
+                    {% endunless %}
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .ScrollSlideshow .ScrollContainer {
+      height: calc(100vh * {{ cnt | plus: 1 }});
+    }
+  </style>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Life with Brilli", 
+    "presets": [
+      {
+        "name": "Life with Brilli",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "benefit_item",
+        "name": "Benefit",
+        "settings": [
+          {
+            "type": "text",
+            "id": "benefittitle",
+            "label": "Benefit Title"
+          },
+          {
+            "type": "richtext",
+            "id": "benefittext",
+            "label": "Benefit Text"
+          },
+          {
+            "type": "text",
+            "id": "benefiturl",
+            "label": "Benefit URL"
+          },
+          {
+            "type": "text",
+            "id": "benefitbuttonlabel",
+            "label": "Benefit Button Label"
+          },
+          {
+            "type": "image_picker",
+            "id": "benefitimage",
+            "label": "Benefit Image"
+          },
+          {
+            "type": "text",
+            "id": "benefiticonurl",
+            "label": "Benefit Icon URL"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

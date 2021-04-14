@@ -1,0 +1,71 @@
+{% assign title = product.metafields.custom_fields["product_catalog_name"] %}
+{% if title == blank %}
+  {% assign title = product.title %}
+{% endif %}
+{% assign price = product.price %}
+{% assign product_id = product.id %}
+{% assign variant_id = product.selected_or_first_available_variant.id %}
+{% assign thumb = product.featured_image %}
+
+<!--<div class="ProductGridItem search {{ product.handle }} {{ collection_ref.handle }} product-{{ product.sku }} taphover">
+  <div class="inner">
+    <a class="image-holder {{ product.type | handleize }}" href="{{ product.url }}" itemprop="name">
+      <img src="{{ thumb | img_url: '720x' }}" />
+    </a>
+    <div class="title-wrap">
+      <a class="info" href="{{ product.url }}" itemprop="name">
+        <h3>{{ title }}</h3>
+      </a>
+    </div>
+    <div class="actions-wrap">
+      <div class="option-wrap">
+        <div class="option active">
+          <span class="price">{{ price | money }}</span>
+        </div>
+      </div>
+      <div class="button-wrap">
+        <a class="button large outline thick add-to-cart {% if product.available == false %}disabled{% endif %}" data-product-id="{{ product_id }}" data-variant-id="{{ variant_id }}">ADD TO CART</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+{% assign title = product.metafields.custom_fields["product_catalog_name"] %}
+{% if title == blank %}
+  {% assign title = product.title %}
+{% endif %}
+{% assign price = product.price %}
+{% assign product_id = product.id %}
+{% assign variant_id = product.selected_or_first_available_variant.id %}
+{% assign thumb = product.featured_image | img_url: '1080x' %}
+{% assign thumb_over = product.metafields.custom_fields['collection_overlay_image'] %}
+
+<div class="ProductGridItem {{ product.handle }} {{ collection_ref.handle }} product-{{ product.sku }} taphover">
+  <div class="inner">
+    <a class="image-holder {{ product.type | handleize }}" href="{{ product.url }}" itemprop="name">
+      <img src="{{ thumb }}" />
+      <img class="overlay" src="{{ thumb_over }}" />
+    </a>
+    <div class="title-wrap">
+      <a class="info" href="{{ product.url }}" itemprop="name">
+        <h3>{{ title }}</h3>
+        {% assign description = product.metafields.custom_fields["product_catalog_description"] %}
+        {% unless description == blank %}
+        <p class="description">{{ description }}</p>
+        {% endunless %}
+      </a>
+    </div>
+    <div class="actions-wrap">
+      <a class="option-wrap" href="{{ product.url }}">
+        <div class="product-star-rating yotpo bottomLine"
+          data-appkey="W3b6GPSj8fjs7h2XMPYE8sFjD0GZVs1RzyN5F3Ks"    
+          data-product-id="{{ product.id }}">
+        </div>
+      </a>
+      <div class="button-wrap">
+        <a href="{{ product.url }}" class="text-link {% if product.available == false %}disabled{% endif %}" data-product-id="{{ product_id }}" data-variant-id="{{ variant_id }}">Shop Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+

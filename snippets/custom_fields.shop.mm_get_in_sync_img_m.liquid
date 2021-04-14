@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/155705/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["mm_get_in_sync_img_m"] != blank %}
+  <div class="custom-field custom-field__mm-get-in-sync-img-m custom-field__type--image">
+    <h3 class="custom-field--title">Mega Menu Get In Sync Image Mobile</h3>
+    <div class="custom-field--value">  
+      {% include 'cf-image' with image: shop.metafields.custom_fields["mm_get_in_sync_img_m"] %}
+    </div>
+  </div>
+{% endif %}

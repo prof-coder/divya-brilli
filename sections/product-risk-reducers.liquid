@@ -1,0 +1,39 @@
+<section class="ProductRiskReducers" data-section-id="{{ section.id }}" data-section-type="product">
+  <div class="inner">
+    <h2>{{ shop.metafields.custom_fields["risk_reducers_title"] }}</h2>
+    <div class="RiskReducerGrid">
+      <ul>
+        {% assign separator = "|###|" %}
+        {% assign risk_reducer_icon_array = shop.metafields.custom_fields["risk_reducer_icon"] | split: separator %}
+        {% assign risk_reducer_title_array = shop.metafields.custom_fields["risk_reducer_title"] | split: separator %}
+        {% assign fc_keys = shop.metafields.custom_fields["product_risk_reducer_icons"] | split: "," %}
+        {% for i in fc_keys %}
+          {% assign index = i | plus: 0 %}
+          <li class="benefit benefit-{{ index }}">
+            {% if risk_reducer_icon_array[index] != blank %}
+            <img src="{{ risk_reducer_icon_array[index] }}" alt="{{ risk_reducer_title_array[index] }}"/>
+            {% endif %}
+            {% if risk_reducer_title_array[index] != blank %}
+            <h3>{{ risk_reducer_title_array[index] }}</h3>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="risk-reducer-disclaimer">
+      {{ shop.metafields.custom_fields["risk_reducers_disclaimer"] }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Risk Reducers",
+    "presets": [
+      {
+        "name": "Risk Reducers",
+        "category": "Product"
+      }
+    ]
+  }
+{% endschema %}

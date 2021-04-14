@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+<head>
+  {% include 'head' %}
+  {{content_for_header}}
+  <meta name="google-site-verification" content="0-0-bVplzy1dfb9vDZtD1IxYVyqAcqA3Cr0dISYQgRQ" />
+</head>
+
+{%- assign announcement_class = blank -%}
+{%- if settings.announcement_bar_enabled -%}
+  {%- if settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
+    {%- assign announcement_class = "announcement-bar-active" -%}
+  {%- endif -%}
+{%- endif -%}
+
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}{% if template.suffix != blank %}-{{ template.suffix | handle }}{% endif %} {{ announcement_class }}">
+  {% include 'gtm-body' %}
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }} </a>
+  {% section 'header' %}
+  <main role="main" id="MainContent">
+    {{ content_for_layout }}
+  </main>
+  {% section 'footer' %}
+  {% section 'newsletter-popup' %}
+  {% include 'zendesk-chat-button' %}
+  {% include 'panel-click' %}
+  {% include 'account-overlay' %}
+  {% include 'cart-overlay' %}
+  {% include 'swymSnippet' %}
+  {% include 'special-offers' %}
+</body>
+</html>

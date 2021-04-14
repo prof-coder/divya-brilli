@@ -1,0 +1,25 @@
+{% comment %}
+  This page represents the /collections and /products pages.
+{% endcomment %}
+<div class="content Collections">
+  {% if shop.metafields.custom_fields["shop_collections"] != blank %}
+    {% assign collection_refs = shop.metafields.custom_fields["shop_collections"] | split: "|" %}
+    {% assign cnt = 0 %}
+    {% assign max = collection_refs | size %}
+    {% for collection_handle in collection_refs %}
+      {% assign collection_ref = collections[collection_handle] %}
+      {% assign cnt = cnt | plus: 1 %}
+      {% assign slug = category.handle %}
+      {% assign gray = false %}
+      <section class="ProductCollection" id="{{ collection_ref.handle }}">
+        <div class="inner">
+          <div class="title-wrap">
+            <h2>{{ collection_ref.title }}</h2>
+            <div class="collection-description">{{ collection_ref.description }}</div>
+          </div>
+          {% include 'product-collection-grid' %}
+        </div>
+      </section>
+    {% endfor %}
+  {% endif %}
+</div>

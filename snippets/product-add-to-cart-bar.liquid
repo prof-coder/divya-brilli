@@ -1,0 +1,39 @@
+{% assign title = product.metafields.custom_fields["fun_name"] %}
+{% assign subtitle = product.title %}
+{% if title == blank %}
+  {% assign title = product.title %}
+  {% assign subtitle = product.blank %}
+{% endif %}
+
+{% assign ecommerce_id = product.id %}
+
+<div class="ProductAddToCartBar">
+  <div class="inner">
+    
+    <div class="title">
+      <div class="item-img">
+        <span class="image-holder">
+          <img alt="{{title}}" src="{{ product.featured_image | img_url: '1720x' }}">
+        </span>
+      </div>
+      <h1>{{title}}</h1>
+    </div>
+    <div class="details">
+      <div class="price-block">
+        <span class="price">{{ current_variant.price | money }}</span>
+        {% if product.available %}
+
+          <span class="item-quantity">
+            <span class="icon-minus">{% include 'minus' %}</span>
+            <span class="qty">1</span>
+            <span class="icon-plus">{% include 'plus' %}</span>
+          </span>
+
+          <a class="button" data-product-id="{{ecommerce_id}}">ADD <span class="desktop-inline-block">TO CART</span></a>
+          {% else %}
+          <p class="product-unavailable message"><span class="desktop-inline-block">Product</span> Unavailable</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

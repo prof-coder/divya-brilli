@@ -1,0 +1,59 @@
+<section class="ProductTestimonials" data-section-id="{{ section.id }}" >
+  <div class="inner">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="Testimonials">
+        {% for block in section.blocks %}
+          {% assign index = i | plus: 0 %}
+          <div class="ProductTestimonial">
+            <div class="text-wrap">
+              <div class="testimonial-body">
+                <blockquote>{{ block.settings.testimonialtext }}</blockquote>
+              </div>
+              <cite class="cite">
+                {{ block.settings.name }}
+              </cite>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial_item",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "testimonialtext",
+            "label": "Testmonial Text"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+      

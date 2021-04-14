@@ -1,0 +1,1405 @@
+{
+  "current": {
+    "announcement_bar_enabled": true,
+    "announcement_bar_home_page_only": false,
+    "announcement_bar_text": "FREE SHIPPING     |     LIFETIME WARRANTY",
+    "announcement_bar_link": "",
+    "color_accent": "#c4cdd5",
+    "color_body_text": "#69727b",
+    "color_main_bg": "#fff",
+    "font_heading": "helvetica_n4",
+    "font_body": "helvetica_n4",
+    "share_image": "shopify:\/\/shop_images\/PHOTO5.jpg",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "https:\/\/twitter.com\/bebrilli",
+    "social_facebook_link": "https:\/\/www.facebook.com\/bebrilli",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/bebrilli",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "cart_notes_enable": false,
+    "cart_footer_message": "Free shipping on orders over $50",
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/brilli-logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#ffffff",
+    "checkout_heading_font": "Lato",
+    "checkout_body_font": "Playball",
+    "checkout_accent_color": "#a8a093",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "newsletter_list_id": "KS9cnN",
+    "color_text": "#3d4246",
+    "color_sale_text": "#557B97",
+    "color_button": "#557B97",
+    "color_button_text": "#fff",
+    "color_small_button_text_border": "#3d4246",
+    "color_text_field_text": "#000",
+    "color_text_field_border": "#949494",
+    "color_text_field": "#fff",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 40,
+    "color_borders": "#e8e9eb",
+    "color_body_bg": "#fff",
+    "type_header_font": "work_sans_n6",
+    "type_header_base_size": 26,
+    "type_base_font": "work_sans_n4",
+    "type_base_size": 16,
+    "type_bold_product_titles": false,
+    "pluginseo_pageTitleIndexTemplate": "Brilli: The Light That Turns You On",
+    "pluginseo_metaDescriptionIndexTemplate": "Enjoy the widest spectrum of well-being benefits. Reset your circadian rhythm, improve mood, reduce stress, boost energy, reduce eye strain, wind down.",
+    "pluginseo_pageTitleDefaultTemplate": "%% page_title %% | With Brilli experience the widest spectrum of well-being benefits for mind, body, and mood. | %% shop.name %%",
+    "pluginseo_pageTitlePageTemplate": "%% page_title %% | With Brilli experience the widest spectrum of well-being benefits for mind, body, and mood.",
+    "pluginseo_pageTitleProductTemplate": "%% product.title %%%% product.selected_variant.title || prepend_not_empty: ' ' %% | Brilli lighting for well-being",
+    "pluginseo_metaDescriptionCollectionTemplate": "%% collection.all_tags || take: '3' || join: ', ' || prepend_not_empty: 'Shop ' || append_not_empty: ' and more ' %%%% collection.title || escape %% at %% shop.name %%: Brilli lighting for well-being %% collection.description || strip_html || strip_newlines || escape || strip %% Free shipping, free returns, lifetime guarantee",
+    "pluginseo_metaDescriptionDefaultTemplate": "%% page_description %% Free shipping, free returns, lifetime guarantee",
+    "pluginseo_metaDescriptionPageTemplate": "%% page.content || strip_newlines || strip_html || escape || append_not_empty: '.' %% Visit %% shop.name %% to Experience the widest spectrum of well-being benefits for mind, body, and mood",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-mega-menu",
+          "mobile-menu": "main-mobile-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "show_share_buttons": true
+        }
+      },
+      "product-info": {
+        "type": "product-info",
+        "settings": {
+          "show_share_buttons": true
+        }
+      },
+      "header-simple": {
+        "type": "header-simple",
+        "settings": {
+          "announcement_bar_enabled": false,
+          "announcement_bar_home_page_only": true,
+          "announcement_bar_text": "Announce something here",
+          "announcement_bar_link": "",
+          "menu": "main-menu"
+        }
+      },
+      "hero-image-with-text": {
+        "type": "hero-image-with-text",
+        "settings": {
+          "hero_image": "shopify:\/\/shop_images\/zen-lady_3a8d1e06-48b3-473a-9bc4-8c251860dda4.png",
+          "layout": "left",
+          "line-style": "line-style1",
+          "title": "Our Story.",
+          "subtitle": "",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "custom_css_classes": "our-story"
+        }
+      },
+      "image-with-text": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "",
+          "mobile_image": "",
+          "layout": "left",
+          "background-color": "white-bg",
+          "line-style": "line-style1",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "caption": "<p>This is text for a caption.<\/p>",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "display_circle": false,
+          "circle_small": false,
+          "mobile_text_position_style": "mobile_text_position_left_center",
+          "mobile_text_alignment": "mobile_text_alignment_left",
+          "mobile_image_size": "mobile_image_size_small",
+          "circle_color": "circle_color_yellow",
+          "circuit_style": "circuit_style_none",
+          "bulb_style": "bulb_style_none",
+          "animation_style": "animation_style_none",
+          "animation_frame_count": 1,
+          "custom_css_classes": ""
+        }
+      },
+      "image-with-text1": {
+        "type": "image-with-text1",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/john_684ea7c9-7ce7-4ab5-8c3f-811f29f54830.png",
+          "mobile_image": "shopify:\/\/shop_images\/john-mobile_622492e5-128e-4226-ace5-293f07f227da.png",
+          "layout": "right",
+          "background-color": "blue-bg",
+          "line-style": "line-style4",
+          "title": "<small>It began with a proverbial <\/small><br>light bulb moment",
+          "text": "<p>By now, everyone knows pure water and<br> clean air are healthy must-haves. But while<br> at home one day, a light bulb went off in<br> John Goscha&rsquo;s head. That&rsquo;s when he realized<br> something vital was missing from <br>the equation. NATURAL LIGHT.&nbsp;<\/p>",
+          "caption": "<p><strong>JOHN&nbsp;GOSCHA<\/strong><\/p>\n<p>Founder<\/p>",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "display_circle": true,
+          "circle_small": false,
+          "mobile_text_position_style": "mobile_text_position_center_top",
+          "mobile_text_alignment": "mobile_text_alignment_left",
+          "mobile_image_size": "mobile_image_size_medium",
+          "circle_color": "circle_color_white",
+          "circuit_style": "circuit_style_none",
+          "bulb_style": "bulb_style_none",
+          "animation_style": "animation_style_none",
+          "animation_frame_count": 1,
+          "custom_css_classes": "light-bulb-moment"
+        }
+      },
+      "image-with-text2": {
+        "type": "image-with-text2",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/sun-soaker-desktop_73f74e78-58ce-48d5-8b49-4ca0952e47b0.png",
+          "mobile_image": "shopify:\/\/shop_images\/sun-soaker-mobile.png",
+          "layout": "left",
+          "background-color": "white-bg",
+          "line-style": "line-style4",
+          "title": "WE NEED NATURAL<br> LIGHT TO THRIVE",
+          "text": "<p>Sunlight energy enters our eyes and follows <br>ancient pathways in our brain to govern <br>everything from our circadian sleep-wake <br>cycle to our heart rate and body temperature <br>to our metabolism and appetite.<\/p>\n<p><\/p>\n<p>At sunrise, bright, cool daylight releases <br>cortisol to keep us awake and alert. <br>With sunset, the warm evening glow <br>promotes melatonin production to help us <br>relax, unwind and prepare for restful sleep. <br>Maintaining the regularity of this schedule <br>is vital to our health and happiness.<\/p>\n<p><\/p>\n<p>But these days, we spend as much as 90% <br>of our days indoors - under poor quality light. <br>We're missing all of the good stuff natural <br>sunlight does for our bodies, minds, and <br>moods. And so Brilli was invented. And not <br>since the sun has light felt so right.<\/p>",
+          "caption": "",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "display_circle": true,
+          "circle_small": true,
+          "mobile_text_position_style": "mobile_text_position_center_top",
+          "mobile_text_alignment": "mobile_text_alignment_left",
+          "mobile_image_size": "mobile_image_size_small",
+          "circle_color": "circle_color_yellow",
+          "circuit_style": "circuit_style_none",
+          "bulb_style": "bulb_style_none",
+          "animation_style": "animation_style_none",
+          "animation_frame_count": 1,
+          "custom_css_classes": "sun-soaker"
+        }
+      },
+      "image-with-text3": {
+        "type": "image-with-text3",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/feel-great-inside_ebd348e8-0703-4e7a-81e1-93e2de6a5d39.png",
+          "mobile_image": "shopify:\/\/shop_images\/feel-great-inside-mobile.png",
+          "layout": "right",
+          "background-color": "tan-bg",
+          "line-style": "line-style4",
+          "title": "SO YOU CAN FEEL<br> GREAT INSIDE",
+          "text": "<p>More than light a room, Brilli scientists<br> created a full spectrum of well-being<br> benefits. To turn on energy, alertness<br> and focus, and turn on relaxation and better<br> moods. Just like nature intended. So you<br> can feel your Brilli best, every day. Get to<br> know the science behind our light.<\/p>",
+          "caption": "<p><strong>&ldquo;Lights should do more than<br> illuminate our surroundings.&rdquo;<br><\/strong>- John Goscha&nbsp;<\/p>",
+          "button_label": "GEEK OUT",
+          "button_link": "shopify:\/\/pages\/the-science",
+          "angle_top": false,
+          "angle_bottom": false,
+          "display_circle": true,
+          "circle_small": true,
+          "mobile_text_position_style": "mobile_text_position_center_top",
+          "mobile_text_alignment": "mobile_text_alignment_left",
+          "mobile_image_size": "mobile_image_size_medium",
+          "circle_color": "circle_color_white",
+          "circuit_style": "circuit_style_none",
+          "bulb_style": "bulb_style_none",
+          "animation_style": "animation_style_none",
+          "animation_frame_count": 1,
+          "custom_css_classes": "feel-great-inside"
+        }
+      },
+      "image-with-text4": {
+        "type": "image-with-text4",
+        "settings": {
+          "image": "",
+          "mobile_image": "",
+          "layout": "left",
+          "background-color": "blue-bg",
+          "line-style": "line-style1",
+          "title": "One good turn deserves another.",
+          "text": "<p>This is dummy copy. Not written yet.<\/p>",
+          "caption": "<p>This is text for a caption.<\/p>",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": true,
+          "angle_bottom": true,
+          "display_circle": false,
+          "circle_small": false,
+          "mobile_text_position_style": "mobile_text_position_left_center",
+          "mobile_text_alignment": "mobile_text_alignment_left",
+          "mobile_image_size": "mobile_image_size_small",
+          "circle_color": "circle_color_yellow",
+          "circuit_style": "circuit_style_none",
+          "bulb_style": "bulb_style_none",
+          "animation_style": "animation_style_none",
+          "animation_frame_count": 1,
+          "custom_css_classes": ""
+        }
+      },
+      "newsletter-popup": {
+        "type": "newsletter-popup",
+        "settings": {
+          "title": "Make the switch to live better with Brilli",
+          "description": "Join our email list and stay up-to-date on the latest promotions, new products, and wellness lifestyle resources.",
+          "placeholder": "Email",
+          "cta": "Sign up",
+          "cta-cancel": "No Thanks",
+          "thankyoutitle": "Thank you!",
+          "thankyou": "You have been added to our newsletter.  <br>Please check your email to confirm your subscription."
+        }
+      },
+      "hero-image-with-text-science": {
+        "type": "hero-image-with-text-science",
+        "settings": {
+          "hero_image": "shopify:\/\/shop_images\/science-hero-spectrum_9e7638bd-b2c0-45f8-813b-f68c062ddb8d.png",
+          "layout": "left",
+          "line-style": "line-style3",
+          "title": "",
+          "subtitle": "Discover the widest spectrum of well-being benefits.",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "custom_css_classes": "science-hero"
+        }
+      },
+      "hero-image-with-text-benefits": {
+        "type": "hero-image-with-text-benefits",
+        "settings": {
+          "hero_image": "shopify:\/\/shop_images\/benefits-hero_d40711d4-4740-4d9e-b2a1-59cb8a796ed4.png",
+          "layout": "center",
+          "line-style": "line-style3",
+          "title": "",
+          "subtitle": "BRIGHTER MORNINGS. <br> MORE RESTFUL NIGHTS.",
+          "button_label": "",
+          "button_link": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "custom_css_classes": "benefits-hero show-glow"
+        }
+      },
+      "1570501952965": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/watts-of-love3.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/watts-of-love3.jpg",
+          "layout": "right",
+          "background-color": "gray-bg",
+          "line-style": "line-style1",
+          "title": "<small>Changing the world,<\/small><br> ONE LIGHT AT A TIME",
+          "text": "<p>Through our partnership with Watts of Love, every Brilli purchase brings light to a community that lacks access to resources like electricity, education and economic independence. Because we believe that light is vital to life, and that light should shine equally on all.<\/p>",
+          "caption": "",
+          "button_label": "",
+          "angle_top": false,
+          "angle_bottom": false,
+          "display_circle": false,
+          "circle_small": false,
+          "mobile_text_position_style": "mobile_text_position_center_top",
+          "mobile_text_alignment": "mobile_text_alignment_center",
+          "mobile_image_size": "mobile_image_size_small",
+          "circle_color": "circle_color_yellow",
+          "circuit_style": "circuit_style_none",
+          "bulb_style": "bulb_style_none",
+          "animation_style": "animation_style_none",
+          "animation_frame_count": 1,
+          "custom_css_classes": "watts-of-love"
+        }
+      },
+      "hero-image-general": {
+        "type": "hero-image-general",
+        "settings": {}
+      },
+      "1582139962019": {
+        "type": "featured-collection",
+        "disabled": true,
+        "settings": {
+          "title": "MOST LOVED<br><small>Top-sellers & customer favorites<\/small>",
+          "collection": "home-page-best-sellers"
+        }
+      },
+      "1582284087105": {
+        "type": "home-press",
+        "blocks": {
+          "1583774840010": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wallstreetjournal-logo1.png",
+              "title": ""
+            }
+          },
+          "1582284292163": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forbes-logo-transparent.png",
+              "title": "Forbes"
+            }
+          },
+          "1582284308463": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/fast-company-logo.png",
+              "title": "Fast Company"
+            }
+          },
+          "1582284092124": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/well-good-logo3.png",
+              "title": "Well + Good"
+            }
+          },
+          "1582284245464": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/real-simple-logo-transparent.png",
+              "title": "Real Simple"
+            }
+          },
+          "1582284272867": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/goop-logo-transparent.png",
+              "title": "goop"
+            }
+          },
+          "1582284330105": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/apartment-therapy-logo-transparent1.png",
+              "title": "Apartment Therapy"
+            }
+          },
+          "1584458575351": {
+            "type": "press_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mens-health-logo.png",
+              "title": "Men's Health"
+            }
+          }
+        },
+        "block_order": [
+          "1583774840010",
+          "1582284292163",
+          "1582284308463",
+          "1582284092124",
+          "1582284245464",
+          "1582284272867",
+          "1582284330105",
+          "1584458575351"
+        ],
+        "settings": {
+          "title": "featured in"
+        }
+      },
+      "1582288623663": {
+        "type": "faqs",
+        "blocks": {
+          "1582288636840": {
+            "type": "faq_item",
+            "settings": {
+              "title": "How is Brilli lighting different from regular LED’s?",
+              "text": "<p>Our scientific approach to lighting starts with health benefits. We first consider how the light will impact circadian rhythms, the stimulus to mind and mood, neuroaesthetics and visual comfort, and the potential for eyestrain and headaches cause by bad lighting design. We then factor in 7 key color quality metrics, and include premium features like multiple LED’s, premium phosphors and synchronized tuning. Additionally, all Brilli lighting is Energy Star Certified for energy efficiency—because the light should be beautiful and also good for the planet.<\/p>"
+            }
+          },
+          "1582288803598": {
+            "type": "faq_item",
+            "settings": {
+              "title": "What makes Brilli lighting better for sleep?",
+              "text": "<p>Certain wavelengths of light suppress Melatonin in humans, with the strongest response occurring in the short-wavelength portion of the blue spectrum between 446 and 477 nm. This light is good by day, as it promotes energy, focus and alertness. However, there is consensus in the healthcare community that exposure to cool blue light should be minimized beginning 2 hours before bedtime, at a percentage of less than 2%, as anything higher inhibits Melatonin production.<\/p>"
+            }
+          },
+          "1582288806705": {
+            "type": "faq_item",
+            "settings": {
+              "title": "What makes Brilli lighting good for circadian rhythms?",
+              "text": "<p>All Brilli lighting is designed with the optimal Circadian Stimulus (C\/S) depending on time of day. And all Brilli lighting is designed with the optimal Melanopic\/Photopic (M\/P) ratio depending on time of day.<\/p>"
+            }
+          },
+          "1582288809963": {
+            "type": "faq_item",
+            "settings": {
+              "title": "How does Brilli mimic sunlight?",
+              "text": "<p>It would take a thousand super computers to replicate the amazing light spectrum of sunlight. However, Brilli does mimic some of the healthy parts of the sun’s spectrum—the ones that help to align our biological rhythms, improve sleep, boost energy, etc. And we think you should still get sunlight. Sunlight is healthy and we need it for things like Vitamin D. And the simple act of going outside just makes you a happier person.<\/p>"
+            }
+          },
+          "1582288825352": {
+            "type": "faq_item",
+            "settings": {
+              "title": "Does Brilli contain “bad” blue light?",
+              "text": "<p>Blue light at night can be very disruptive to sleep because they suppress melatonin production. That&#x27;s why we removed these wavelengths from our Wind Down bulbs and Get in Sync fixtures (when dimmed to the low setting.) Even the sun emits blue light wavelengths during the day, which is beneficial to energy, alertness and feeling awake. So, we don’t recommend blocking blue light. Instead, we recommend exposure to blue light for specific times of day.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1582288636840",
+          "1582288803598",
+          "1582288806705",
+          "1582288809963",
+          "1582288825352"
+        ],
+        "settings": {
+          "title": "<small>Frequently Asked<\/small><br>QUESTIONS"
+        }
+      },
+      "1582636252225": {
+        "type": "featured-blog-posts",
+        "settings": {
+          "title": "<small>Bright ideas &<\/small>ESSENTIAL READING",
+          "button_label": "Read the Brilli blog"
+        }
+      },
+      "1582639141792": {
+        "type": "social-posts",
+        "blocks": {
+          "1582639238551": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social01_df89ca32-ff55-46f6-b90d-3296281ef16d.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B5DTndqA_CO\/"
+            }
+          },
+          "1582639708963": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social02_73752f9a-1818-46a0-a75a-8208c2400e81.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B45w-evlVO3\/"
+            }
+          },
+          "1582639718087": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social03.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B7FQXAChBL6\/"
+            }
+          },
+          "1582639725377": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social04.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B87OVhfgtXT\/?utm_source=ig_web_copy_link"
+            }
+          },
+          "1582639733631": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social05.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B43OZPfBDP6\/"
+            }
+          },
+          "1582639744575": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social06.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B87OVhfgtXT\/?utm_source=ig_web_copy_link"
+            }
+          },
+          "1582639754764": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social07.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B6bNFpRF7a-\/"
+            }
+          },
+          "1582639762593": {
+            "type": "post_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/social08.jpg",
+              "url": "https:\/\/www.instagram.com\/p\/B6Wmlp1lT4k\/"
+            }
+          }
+        },
+        "block_order": [
+          "1582639238551",
+          "1582639708963",
+          "1582639718087",
+          "1582639725377",
+          "1582639733631",
+          "1582639744575",
+          "1582639754764",
+          "1582639762593"
+        ],
+        "settings": {
+          "title": "Brilli believers<br><small>on Instagram<\/small>"
+        }
+      },
+      "1582641437542": {
+        "type": "brilli-features",
+        "disabled": true,
+        "blocks": {
+          "1582641627258": {
+            "type": "feature_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/wellness.png",
+              "feature_title": "Health & Wellness",
+              "feature_text": ""
+            }
+          },
+          "1582897677944": {
+            "type": "feature_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/energy-efficiency.png",
+              "feature_title": "Energy Efficiency",
+              "feature_text": ""
+            }
+          },
+          "1582641750987": {
+            "type": "feature_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/premium-materials.png",
+              "feature_title": "Premium Materials",
+              "feature_text": ""
+            }
+          },
+          "1582641764910": {
+            "type": "feature_item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/premium-color-quality.png",
+              "feature_title": "Premium Color Quality",
+              "feature_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "1582641627258",
+          "1582897677944",
+          "1582641750987",
+          "1582641764910"
+        ],
+        "settings": {
+          "title": "",
+          "text": "",
+          "subtitle": "We design around 4 major criteria, ensuring the greatest positive impact to your health and well-being:",
+          "cta_label": "SHOP THE LIGHTS",
+          "cta_url": "\/collections",
+          "image": "shopify:\/\/shop_images\/brilli-benefits.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/brilli-benefits.jpg"
+        }
+      },
+      "product-press": {
+        "type": "product-press",
+        "settings": {}
+      },
+      "product-benefits": {
+        "type": "product-benefits",
+        "settings": {}
+      },
+      "product-testimonials": {
+        "type": "product-testimonials",
+        "settings": {}
+      },
+      "product-science": {
+        "type": "product-science",
+        "settings": {}
+      },
+      "product-scientific-advisors": {
+        "type": "product-scientific-advisors",
+        "settings": {}
+      },
+      "product-best-results": {
+        "type": "product-best-results",
+        "settings": {}
+      },
+      "product-install-instructions": {
+        "type": "product-install-instructions",
+        "settings": {}
+      },
+      "product-risk-reducers": {
+        "type": "product-risk-reducers",
+        "settings": {}
+      },
+      "product-watts-of-love": {
+        "type": "product-watts-of-love",
+        "settings": {}
+      },
+      "product-reviews": {
+        "type": "product-reviews",
+        "settings": {}
+      },
+      "product-related": {
+        "type": "product-related",
+        "settings": {}
+      },
+      "1583775160178": {
+        "type": "rich-text",
+        "settings": {
+          "title": "Lighting reinvented<br><small class=\"text-above\">for health & wellness.<\/small>",
+          "text": "<p>Brilli is the first company to focus on improving health, wellness, mood, energy and sleep through something we’re all surrounded with every day of our lives: <strong>LIGHT<\/strong>.<\/p>",
+          "button_label": "Our Story",
+          "button_url": "shopify:\/\/pages\/our-story"
+        }
+      },
+      "1583776372193": {
+        "type": "home-scientific-advisors",
+        "settings": {
+          "title": "<small>Developed for comfort,<\/small>backed by science.",
+          "text": "<p>When you turn on a Brilli light, you’re turning on the science of more than 650 peer-reviewed studies related to light and its effects on natural biological rhythms, and the expertise of our Scientific Advisory board.<\/p>",
+          "button_label": "Learn More",
+          "button_url": "shopify:\/\/pages\/the-science"
+        }
+      },
+      "1583776771458": {
+        "type": "collection-list",
+        "blocks": {
+          "1583776771458-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "wind-down",
+              "title": "<small>Come home to calm with<\/small><br> Wind Down",
+              "text": "<p>Say goodbye to blue light, naturally induce feelings of relaxation, and prepare the body for sleep.<\/p>"
+            }
+          },
+          "1583776771458-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "charge-up",
+              "title": "<small>Supercharge your day with<\/small><br> Charge Up",
+              "text": "<p>Designed to naturally increase energy, focus, and alertness— improving your productivity and mood.<\/p>"
+            }
+          },
+          "1583776771458-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "get-in-sync",
+              "title": "<small>Tell your circadian clock to<\/small><br> Get in sync",
+              "text": "<p>A balanced sleep-cycle is just a light switch away. Feels like sunlight at full brightness; candlelight when dimmed.<\/p>"
+            }
+          },
+          "1583776802783": {
+            "type": "collection",
+            "settings": {
+              "collection": "look-up",
+              "title": "<small>Give your beauty routine a boost<\/small><br> Look up",
+              "text": "<p>Feel more energized in just 20 minutes with a beauty mirror that gives “lux” a whole new meaning. <\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1583776771458-1",
+          "1583776771458-0",
+          "1583776771458-2",
+          "1583776802783"
+        ],
+        "settings": {
+          "title": "Live better<br><small class=\"text-above\">with Brilli.<\/small>",
+          "text": "<p>Brilli lights are thoughtfully designed to help you live life to its fullest– morning, noon and night. <\/p>"
+        }
+      },
+      "1583847336240": {
+        "type": "hero-image-home",
+        "settings": {
+          "title": "Light better, live better.",
+          "text": "<p>Make the switch to the energy-efficient lighting scientifically engineered for better health and wellness.<\/p>",
+          "button_label": "SHOP ALL COLLECTIONS",
+          "button_url": "shopify:\/\/collections",
+          "image": "shopify:\/\/shop_images\/home-hero-bulbs-desktop.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/home-hero-bulbs-mobile.jpg"
+        }
+      },
+      "textoverlayhero": {
+        "type": "textoverlayhero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Brilli_inStudio_ChargeUp_29_9d144d8d-7411-418b-82e7-65ba835755bf.jpg",
+          "mobimage": "shopify:\/\/shop_images\/Brilli_inStudio_ChargeUp_29-mobile.jpg",
+          "title": "Meet the Brilli WellBright Spectrum™",
+          "subtitle": ""
+        }
+      },
+      "hero-image-science": {
+        "type": "hero-image-science",
+        "settings": {
+          "subtitle": "<small>Light does a “You‑turn”<\/small><br>for the better",
+          "title": "",
+          "text": "<p>When designing our light, we had one thing in mind:&nbsp;<strong>you.<\/strong><\/p>\n<p>Our approach to research and development is unlike other lighting companies. We focused on developing a light that would do more than just brighten a room-we wanted to invent a new type of lighting that also improved health and wellness, and was backed by scientific research.<\/p>\n<p>Our patent-pending WellBright Spectrum&trade; is unique because it provides the most comprehensive balance of wellness, visual comfort, aesthetics, and energy efficiency. We call it the &ldquo;Brilli Blend&rdquo;, and there is nothing like it available on the market.<\/p>",
+          "image": "shopify:\/\/shop_images\/PHOTO1_0.5X.png",
+          "mobile_image": "shopify:\/\/shop_images\/PHOTO1_0.5X.png"
+        }
+      },
+      "science-slider": {
+        "type": "science-slider",
+        "blocks": {
+          "1592193076841": {
+            "type": "Person",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dr._shadab.png",
+              "name": "Dr. Shadab Rahman",
+              "text": "<p><em>Scientific advisor,<\/em><br><em>Consulting Circadian Scientist<\/em><\/p>\n<p>Advises on circadian neurophysiology, and how lighting characteristics affect circadian rhythms.<\/p>"
+            }
+          },
+          "1592193114138": {
+            "type": "Person",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dr._doug.png",
+              "name": "Dr. Doug Steel",
+              "text": "<p><em>Scientific Advisor, Consulting&nbsp;Neuroscientist<\/em><\/p>\n<p>Advises on human response to light, and non-visual neural pathways from eye to brain<\/p>"
+            }
+          },
+          "1592193166685": {
+            "type": "Person",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dr_tony.png",
+              "name": "Dr. Tony Esposito",
+              "text": "<p><em>Scientific Advisor,&nbsp;<\/em><br><em>Consulting Lighting Research Scientist<\/em><\/p>\n<p>Advises on lighting quality and spectral engineering, including color science and circadian metrics<\/p>"
+            }
+          },
+          "1592193216457": {
+            "type": "Person",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4a47005b30a2--michael-idelchik1-716351.png",
+              "name": "Michael Idelchik",
+              "text": "<p><em>Scientific Advisor,<\/em><br><em>Lighting Technologist<\/em><\/p>\n<p>Former Vice President of Advanced Technology at GE Global Research<\/p>"
+            }
+          },
+          "1592193250486": {
+            "type": "Person",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4a47005b30a2--dr-vic-roberts-5153ca.png",
+              "name": "Dr. Vic Roberts",
+              "text": "<p><em>Scientific Advisor,<\/em><br><em>Lighting Technologist<\/em><\/p>\n<p>Former Head of Research, GE&nbsp;Lighting<\/p>"
+            }
+          },
+          "1592193275602": {
+            "type": "Person",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4a47005b30a2--dr-jakob-maya-0e8077.png",
+              "name": "Dr. Jakob Maya",
+              "text": "<p><em>Scientific Advisor,<\/em><br><em>Lighting Technologist<\/em><\/p>\n<p>Former Director of R&amp;D and Engineering, Osram Sylvania<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1592193076841",
+          "1592193114138",
+          "1592193166685",
+          "1592193216457",
+          "1592193250486",
+          "1592193275602"
+        ],
+        "settings": {
+          "subtitle": "<small>Developed for comfort<\/small><br>backed by science",
+          "title": "",
+          "text": "<p>When you turn on a Brilli light, you&rsquo;re turning on the science of more than 650 peer-reviewed studies related to light and its effects on natural biological rhythms, and the expertise of our Scientific Advisory board.<\/p>",
+          "color": "#f5f5f5"
+        }
+      },
+      "metric-science": {
+        "type": "metric-science",
+        "blocks": {
+          "1592193512601": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/circadianStimulus_1760fc62-703c-41b5-b631-ec6623c46135.png",
+              "text": "<p>Circadian Stimulus<\/p>"
+            }
+          },
+          "1592193535249": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/melanopicPhotopicRatio_692f78cf-a5d3-4656-9889-437b279d96b2.png",
+              "text": "<p>Melenopic\/Photopic Ratio<\/p>"
+            }
+          },
+          "1592193569884": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/flickerSensitivity_f00216be-1b51-4cf5-a8f4-0455fb93728f.png",
+              "text": "<p>Flicker Sensitivity<\/p>"
+            }
+          },
+          "1592193610282": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/eyestrain_5ff8c5f1-d5c6-4e46-a523-e4e3491836d9.png",
+              "text": "<p>Eyestrain<\/p>"
+            }
+          },
+          "1592193637245": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/blueLight_93495347-0cfe-4cc0-a150-1f5af709012e.png",
+              "text": "<p>% of Blue Light<\/p>"
+            }
+          },
+          "1592193664289": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/visualComfort_47826f36-a080-40f6-94ad-48340a552930.png",
+              "text": "<p>Visual Comfort<\/p>"
+            }
+          },
+          "1592193687075": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/energyEfficiency_74e717c3-a340-4a0f-93f2-500a5755cb0d.png",
+              "text": "<p>Energy Efficiency<\/p>"
+            }
+          },
+          "1592193721094": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/WELLBuilding_ec3e3764-2eb2-4a7a-9baa-77e6a2105eb7.png",
+              "text": "<p>WELL Building Standard<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1592193512601",
+          "1592193535249",
+          "1592193569884",
+          "1592193610282",
+          "1592193637245",
+          "1592193664289",
+          "1592193687075",
+          "1592193721094"
+        ],
+        "settings": {
+          "heading": "We design for 8 wellness & efficiency metrics:"
+        }
+      },
+      "feature-science": {
+        "type": "feature-science",
+        "blocks": {
+          "1592193769105": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/multipleLEDs_506e055b-bac4-4d44-9ec4-5e61ec485e01.png",
+              "text": "<p>Multiple LEDs<\/p>"
+            }
+          },
+          "1592193782468": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/premiumPhosphors_e46e8218-59d0-4bb9-a92e-58dcbdfda0b5.png",
+              "text": "<p>Premium Phosphors<\/p>"
+            }
+          },
+          "1592193814466": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dualTuning_29d7d8e2-4cc2-4200-a32d-d48341b9b5c8.png",
+              "text": "<p>Dual Tunability<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1592193769105",
+          "1592193782468",
+          "1592193814466"
+        ],
+        "settings": {
+          "heading": "And 3 premium features:",
+          "subheading": "Beyond our proprietary light spectrum, Brilli technology is different from traditional LED lighting in three ways:"
+        }
+      },
+      "text-image-science": {
+        "type": "text-image-science",
+        "settings": {
+          "subtitle": "Multiple LEDs",
+          "title": "",
+          "text": "<p>Designed with multiple types of LEDs to simulate the effects of sunrise and sunset, our lights provide the right spectrum of light to improve well-being:<br> &bull; The dimmable Charge Up collection features powerful bright light, optimized for use in the morning and daytime when you need an energy boost.<br> &bull; The dimmable Wind Down collection features a soothing light, optimized for use in the late-afternoon and evening, when you want to relax and prepare for sleep.<br> &bull; The dimmable Get in Sync collection features an adjustable spectrum you can change throughout the day, to get benefits of both Charge Up and Wind Down in a single fixture.<\/p>",
+          "subtitle1": "",
+          "text1": "",
+          "image": "shopify:\/\/shop_images\/Brilli_inStudio_GetinSync_01_1X.png",
+          "mobile_image": "shopify:\/\/shop_images\/Brilli_inStudio_GetinSync_01_1X.png"
+        }
+      },
+      "text-image-science-1": {
+        "type": "text-image-science-1",
+        "settings": {
+          "subtitle": "Premium Phosphors",
+          "title": "",
+          "text": "<p>Most LEDs use inexpensive phosphors to reduce costs, decreasing the quality of the light and increasing annoying flicker. By contrast, Brilli LEDs use premium phosphors to deliver the most robust, high-quality light spectrum and color, while also eliminating flicker that can cause headaches and eye strain.<\/p>",
+          "title1": "Total Tunability",
+          "text1": "<p>Brilli has the only fixtures available on the market featuring patent-pending technology that allows you to simultaneously adjust brightness and light spectrum using any standard dimmer.<\/p>",
+          "title2": "",
+          "text2": "",
+          "image": "shopify:\/\/shop_images\/Brilli_inStudio_GetinSync_22_1X_21c05791-c498-4651-99d1-f2e1295271ca.png",
+          "mobile_image": "shopify:\/\/shop_images\/Brilli_inStudio_GetinSync_22_1X_21c05791-c498-4651-99d1-f2e1295271ca.png"
+        }
+      },
+      "text-column-science": {
+        "type": "text-column-science",
+        "blocks": {
+          "1592193990482": {
+            "type": "collection",
+            "settings": {
+              "collection": "wind-down",
+              "title1": "<p>Come home to calm with<br><strong>Wind Down<\/strong><\/p>",
+              "text": "<p>Say goodbye to blue light, naturally induce feelings of relaxation, and prepare the body for sleep.<\/p>"
+            }
+          },
+          "1592194041102": {
+            "type": "collection",
+            "settings": {
+              "collection": "charge-up",
+              "title1": "<p>Supercharge your day with<br><strong>Charge Up<\/strong><\/p>",
+              "text": "<p>Designed to naturally increase energy, focus, and alertness&mdash;improving your productivity and mood.<\/p>"
+            }
+          },
+          "1592194070243": {
+            "type": "collection",
+            "settings": {
+              "collection": "get-in-sync",
+              "title1": "<p>Tell your circadian clock to<br><strong>Get in sync<\/strong><\/p>",
+              "text": "<p>A balanced sleep-cycle is just a light switch away. Feels like sunlight at full brightness; candlelight when dimmed.<\/p>"
+            }
+          },
+          "1592194100266": {
+            "type": "collection",
+            "settings": {
+              "collection": "look-up",
+              "title1": "<p>Give your beauty routine a boost<br><strong>Look up<\/strong><\/p>",
+              "text": "<p>Feel more energized in just 20 minutes with a beauty mirror that gives &ldquo;lux&rdquo; a whole new meaning.&nbsp;<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1592193990482",
+          "1592194041102",
+          "1592194070243",
+          "1592194100266"
+        ],
+        "settings": {
+          "title": "<small>Are you ready to<\/small><br>EXPERIENCE Brilli?",
+          "text": "<p>Brilli lights are thoughtfully designed to help you live life to its fullest&ndash;morning, noon and night.<\/p>"
+        }
+      },
+      "textoverlayhero1": {
+        "type": "textoverlayhero1",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/PHOTO15.jpg",
+          "mobimage": "shopify:\/\/shop_images\/PHOTO15.jpg",
+          "title": "Light for better health and wellness",
+          "subtitle": ""
+        }
+      },
+      "hero-image-about": {
+        "type": "hero-image-about",
+        "settings": {
+          "subtitle": "<small>It began with a<\/small><br>LIGHT BULB MOMENT",
+          "title": "",
+          "text": "<p>By now, most people know that clean air and water in their homes are healthy must-haves. But one day, a light bulb went off in John Goscha&rsquo;s head. Why can&rsquo;t the light on our homes be better for our health and well-being?<\/p>\n<p>Enter Brilli, the first lighting company to focus solely on the health and well-being of people in every room of their home. We don&rsquo;t just exist to light up spaces. We exist to light up the people within them. Because, like clean air and water, we understand that good light is vital to life.<\/p>",
+          "image": "shopify:\/\/shop_images\/John.Goscha.Jacket_COLOR_1X.png",
+          "mobile_image": "shopify:\/\/shop_images\/John.Goscha.Jacket_COLOR_1X.png"
+        }
+      },
+      "hero-image-about-1": {
+        "type": "hero-image-about-1",
+        "settings": {
+          "subtitle": "<small>We need<\/small><br>GOOD LIGHT TO THRIVE",
+          "title": "",
+          "text": "<p>When you turn on a Brilli light, you&rsquo;re turning on the science of more than 650 peer-reviewed studies related to light and its effects on our natural biological rhythms.<\/p>\n<p>You&rsquo;re experiencing the expertise of leading neuroscientists, circadian experts and lighting experts. And you&rsquo;re living in beautiful, energy-efficient light that also happens to love you back.<\/p>",
+          "image": "shopify:\/\/shop_images\/PHOTO10_1X_1.png",
+          "mobile_image": "shopify:\/\/shop_images\/PHOTO10_1X_1.png"
+        }
+      },
+      "hero-image-about-2": {
+        "type": "hero-image-about-2",
+        "settings": {
+          "subtitle": "<small>Now you can<\/small><br>Feel great inside",
+          "title": "",
+          "text": "<p>No matter the room or time of day, Brilli has the right light to increase energy, sync your natural rhythms, or help your body settle in for sleep.<\/p>\n<p>Get to know the science behind our light.<\/p>",
+          "image": "shopify:\/\/shop_images\/PHOTO13_1X.png",
+          "mobile_image": "shopify:\/\/shop_images\/PHOTO13_1X.png"
+        }
+      },
+      "rich_text": {
+        "type": "rich_text",
+        "settings": {
+          "rich_text": "<p>Most people today spend up to 90% of their time indoors, under harsh LED lighting. But what many don&rsquo;t realize, is that the eyes do more than just see. Receptors in the retinas ingest light from our surroundings, and this light cues the circadian clock that controls vital biological and psychological functions: everything from sleep-wake cycles to mood to hormone regulation, and more.<\/p>\n<p>This is why Brilli is focused on improving health, wellness, and sleep through something we&rsquo;re all surrounded with every day of our lives: LIGHT. Our bulbs and fixtures are scientifically designed with visible and non-visible light spectrums that keep your circadian rhythms in balance, and provide the widest range of benefits to health and well-being, so you can feel your Brilli best&mdash;at the flip of a switch. <\/p>",
+          "title": "<small>1. Circadian Balance<\/small>",
+          "rich_text1": "<p>Circadian rhythm is the 24-hour internal clock that runs in the background of our brain. This clock controls sleep-wake cycle, hormone production, mood and metabolism, cell regeneration and more. Cued by light at sunrise and sunset, this rhythm tells us when to wake in the morning or relax in the evening. With the Brilli WellBright Spectrum&trade;, you can get the right light at the right time of day, to keep your circadian rhythms in-balance, even when you can&rsquo;t get exposure to natural sunlight.<\/p>"
+        }
+      },
+      "rich_text1": {
+        "type": "rich_text1",
+        "settings": {
+          "rich_text": "",
+          "title": "4. Prepare for Sleep",
+          "rich_text1": "<p>Skip the sleep supplements. Significantly reduced blue light in the Brilli WellBright Spectrum&trade; (2700K and below) helps prevent disruption in melatonin production and alertness caused by blue-light exposure before bedtime. Along with rich, warm, calming colors, our light spectrum creates the ideal lighting environment to help the body unwind and get ready for sleep.<\/p>\n<p><\/p>"
+        }
+      },
+      "rich_text2": {
+        "type": "rich_text2",
+        "settings": {
+          "rich_text": "",
+          "title": "8. Minimize eyestrain",
+          "rich_text1": "<p>We beat the daylights out of the competition when it comes to visual comfort: all Brilli lighting minimizes flicker caused by dimmers. Flicker is known to cause eye discomfort, eyestrain and headaches.<\/p>"
+        }
+      },
+      "proven-result": {
+        "type": "proven-result",
+        "blocks": {
+          "1595324054253": {
+            "type": "text",
+            "settings": {
+              "numbers": "90%",
+              "sub_text": "<p>of users who tried <em>Wind Down<\/em> lights reported an improved mood<\/p>"
+            }
+          },
+          "1595324056731": {
+            "type": "text",
+            "settings": {
+              "numbers": "90%",
+              "sub_text": "<p>of users&nbsp;who tried <em>Wind Down<\/em> lights reported falling asleep faster<\/p>"
+            }
+          },
+          "1595324109397": {
+            "type": "text",
+            "settings": {
+              "numbers": "92%",
+              "sub_text": "<p>of users&nbsp;who tried <em>Charge Up<\/em> lights reported feeling more alert<\/p>"
+            }
+          },
+          "1595324127418": {
+            "type": "text",
+            "settings": {
+              "numbers": "86%",
+              "sub_text": "<p>of users&nbsp;who tried <em>Charge Up<\/em> lights reported feeling more energized<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1595324054253",
+          "1595324056731",
+          "1595324109397",
+          "1595324127418"
+        ],
+        "settings": {
+          "title": "Proven Results"
+        }
+      },
+      "textoverlayherocc": {
+        "type": "textoverlayherocc",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/PHOTO13_1X.png",
+          "mobimage": "shopify:\/\/shop_images\/PHOTO13_1X.png",
+          "title": "8 Great Wellness Benefits of Brilli",
+          "subtitle": ""
+        }
+      },
+      "text-image-science11": {
+        "type": "text-image-science11",
+        "settings": {
+          "subtitle": "2. Improve Mood",
+          "title": "",
+          "text": "<p>Specific wavelengths of blue light, as well as the beauty of our surroundings, can trigger positive changes in the brain that affect emotional responses and improve mood. The Brilli WellBright Spectrum&trade; delivers the highest light quality of color fidelity, vibrancy, brightness, and balance of blue light&mdash; providing mood-improving benefits that you can feel.<\/p>",
+          "subtitle1": "3. Reduce Stress",
+          "text1": "<p>Turn on the &ldquo;zen&rdquo;. At 2700K and below, the WellBright Spectrum&trade; reduces stimulating blue light and provides an optimal color balance for a relaxing and soothing environment.<\/p>",
+          "image": "shopify:\/\/shop_images\/9V2A4417_1X.png",
+          "mobile_image": "shopify:\/\/shop_images\/9V2A4417_1X.png"
+        }
+      },
+      "text-image-science12": {
+        "type": "text-image-science12",
+        "settings": {
+          "subtitle": "5. Feel More Focused",
+          "title": "",
+          "text": "<p>We make &ldquo;working from home&rdquo; work for you. At 5000K, the Brilli WellBright Spectrum&trade; provides bright, blue-enriched light to promote improved mental clarity and focus.<\/p>",
+          "title1": "6. Boost Energy",
+          "text1": "<p>Forget about the afternoon slump. At 5000K, the Brilli WellBright Spectrum&trade; provides the right type of blue light to help support increased activity, tasking, and productivity&mdash;naturally.<\/p>",
+          "title2": "7. Increase Alertness",
+          "text2": "<p>See&mdash;and think&mdash;more clearly. At 5000K, the Brilli WellBright Spectrum&trade; provides the right type of blue light to help improve mental clarity, so you feel more alert.<\/p>",
+          "image": "shopify:\/\/shop_images\/BRILLIJPEGS-113_1X.png",
+          "mobile_image": "shopify:\/\/shop_images\/BRILLIJPEGS-113_1X.png"
+        }
+      }
+    },
+    "content_for_index": [
+      "1583847336240",
+      "1583775160178",
+      "1583776771458",
+      "1582284087105",
+      "1582641437542",
+      "1583776372193",
+      "1570501952965",
+      "1582139962019",
+      "1582636252225",
+      "1582288623663",
+      "1582639141792"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#69727b",
+      "color_sale_text": "#557B97",
+      "color_borders": "#e8e9eb",
+      "color_button": "#557B97",
+      "color_button_text": "#fff",
+      "color_small_button_text_border": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_text_field_border": "#949494",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#fff",
+      "type_header_font": "work_sans_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "work_sans_n4",
+      "type_base_size": 16,
+      "type_bold_product_titles": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "type_bold_product_titles": true,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "image_size": "medium",
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "enable_zoom": true,
+            "show_share_buttons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "settings": {}
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

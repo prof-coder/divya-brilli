@@ -1,0 +1,42 @@
+<div class="content_width">
+  <div class="inner_text title-holder ">
+  	{{ section.settings.rich_text }}
+    <h2><small>{{ section.settings.title }}</small></h2>
+    {{ section.settings.rich_text1 }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Rich Text",
+    "settings": [
+	{
+	  "type": "richtext",
+	  "id": "rich_text",
+	  "label": "Sub Text"
+	},
+	{
+	  "type": "text",
+	  "id": "title",
+	  "label": "Title"
+	},
+	{
+	  "type": "richtext",
+	  "id": "rich_text1",
+	  "label": "Sub Text"
+	}
+],
+"presets": [
+	{
+	  "name": "Rich Text",
+	  "category": "Text"
+	}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

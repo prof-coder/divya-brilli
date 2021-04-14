@@ -1,0 +1,32 @@
+{% if product.metafields.custom_fields["install_image"] != blank %}
+<section class="ProductInstallInstructions image-with-text2 image-right" data-section-id="{{ section.id }}"  >
+  <div class="inner overview">
+      <div class="image__image">
+        <img src="{{ product.metafields.custom_fields["install_image"] }}" alt="{{ product.metafields.custom_fields["install_image_alt"] }}" />
+      </div>
+    <div class="image-with-text__text">
+      <div class="inner">
+        <h2>How to Install<small>{{ product.metafields.custom_fields["install_instructions_title"] }}</small></h2>
+        <div class="install-attributes">
+          <div class="skill-level">
+            <h3>Skill Level:</h3>
+            <p>{{ product.metafields.custom_fields["install__skill_level"] }}</p>
+          </div>
+          <div class="time-required">
+            <h3>Time Required:</h3>
+            <p>{{ product.metafields.custom_fields["install_time_required"] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inner steps">
+    <div class="top-copy">
+      {{ product.metafields.custom_fields["install_description"] }}
+    </div>
+    <div class="install-instructions">
+        {{ product.metafields.custom_fields["install_instructions_steps"] }}
+    </div>
+  </div>
+</section>
+{% endif %}

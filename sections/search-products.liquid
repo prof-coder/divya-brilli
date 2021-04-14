@@ -1,0 +1,155 @@
+{% assign product_cnt = 0 %}
+{% for item in search.results %}
+  {% if item.object_type == 'product' %}
+    {% assign product = item %}
+    {% if product.has_only_default_variant %}
+      {% assign product_cnt = product_cnt | plus: 1 %}
+    {% else %}
+      {% for option in product.options %}
+         {% if option == 'Watt' %}
+         {% assign product_id = product.id %}
+         {% assign index = forloop.index0 %}
+         {% assign wattage = '' %}
+         {% assign watts = '' %}
+         {% for variant in product.variants %}
+         {% capture watts %}
+         {% assign title = blank %}
+         {{ variant.options[index] }}
+         {% endcapture %}
+           {% unless wattage contains watts %}
+              {% assign product_cnt = product_cnt | plus: 1 %}  
+              {% capture tempList %}
+            {{wattage | append: watts | append: " " }}
+            {% endcapture %}
+            {% assign wattage = tempList %}
+            {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+
+{% if product_cnt > 0 %}
+<section class="SearchResults products">
+  <h2>Products ({{ product_cnt }})</h2>
+  <hr/>
+  <div class="grid">
+    {% for item in search.results %}
+      {% if item.object_type == 'product' %}
+        {% assign product = item %}
+        {% if product.has_only_default_variant %}
+          {% include 'product-grid-item-search' %}
+          {% else %}
+            {% for option in product.options %}
+               {% if option == 'Watt' %}
+               {% assign product_id = product.id %}
+               {% assign index = forloop.index0 %}
+               {% assign wattage = '' %}
+               {% assign watts = '' %}
+               {% for variant in product.variants %}
+               {% capture watts %}
+               {% assign title = blank %}
+               {{ variant.options[index] }}
+               {% endcapture %}
+                 {% unless wattage contains watts %}
+                    <div class="ProductGridItem multi-variant {{ product.handle }} {{ collection_ref.handle }} taphover" data-url="{{ product.url }}">
+                      {% assign variant_id = blank %}
+                      {% assign variant_available = false %}
+                      <div class="inner">
+                        {% assign cnt = 0 %}
+                        {% for v in product.variants %}
+                          {% if cnt == 0 %}
+                            {% if v.option1 == variant.options[index] %}
+                            <a class="image-holder" href="/products/{{ product.handle }}?variant={{v.id}}" itemprop="name">
+
+                              {% assign thumb = v.featured_image | img_url: '1080x' %}
+                              {% assign thumb_over = v.metafields.custom_fields['collection_overlay_image'] %}
+       
+                              <img src="{{ thumb }}"/>
+                              <img class="overlay" src="{{ v.metafields.custom_fields['collection_overlay_image'] }}" />
+                              {% comment %} Images {% endcomment %}
+                              {% for image in product.images %}
+                                {% if image.alt contains "overlay" %}
+                                  {% assign overlay_image = image %}
+                                {% endif %}
+                              {% endfor %}
+                              <div class="overlay" data-src="{{ overlay_image | img_url: '720x' }}"></div>
+                            </a>
+                            <div class="title-wrap">
+                              <a class="info" href="/products/{{ product.handle }}?variant={{v.id}}" itemprop="name">
+                                {% assign title = v.metafields.custom_fields["product_catalog_name"] %}
+                                {% assign description = v.metafields.custom_fields["product_catalog_description"] %}
+                                {% if title == blank %}
+                                  {% assign title = product.title %}
+                                {% endif %}
+                                <h3>{{ title }}</h3>
+                                {% unless description == blank %}
+                                <p class="description">{{ description }}</p>
+                                {% endunless %}
+                              </a>  
+                            </div>
+                            <div class="actions-wrap">
+                              <a class="option-wrap" href="/products/{{ product.handle }}?variant={{v.id}}">
+                                <div class="yotpo bottomLine"
+                                  data-product-id="{{ product.id }}">
+                                {%- assign yotpo_offload_content = shop.metafields.yotpo.yotpo_offload_content %}
+                                {%- assign time_now = 'now' | date: '%s' %}
+                                {%- assign yotpo_live_time = shop.metafields.yotpo.yotpo_live | date: '%s' %}
+                                {%- assign diff_seconds_from_live = time_now | minus: yotpo_live_time %}
+                                {%- assign yotpo_bottomline_last_updated = product.metafields.yotpo.bottomline_update_time | date: '%s' %}
+                                {%- assign diff_seconds_from_last_bottomline_update = time_now | minus: yotpo_bottomline_last_updated %}
+                                {%- if yotpo_live_time and diff_seconds_from_live < 86400 and yotpo_bottomline_last_updated and diff_seconds_from_last_bottomline_update < 86400 -%}
+                                 {%- assign yotpo_bottomline_obsolete = false %}
+                                {%- else %}
+                                 {%- assign yotpo_bottomline_obsolete = true %}
+                                {%- endif %}
+                                {%- if yotpo_offload_content == 'yes' and yotpo_bottomline_obsolete != true -%}
+                                 {{ product.metafields.yotpo.bottomline }}
+                                {%- endif %}
+                              </a>
+
+                            {% endif %}
+                          {% endif %}
+                            {% assign active class = blank %}
+                            {% if v.option1 == variant.options[index] %}
+                              {% if v.available and variant_id == blank %}
+                                {% assign active_class = 'active' %}
+                                {% assign variant_available = true %}
+                                {% assign variant_id = v.id %}
+                              {% endif %}
+                              {%  if v.available == false %}
+                                {% assign active_class = 'disabled' %}
+                              {% endif %}
+                              
+                              {% assign active_class = blank %}
+                            {% endif %}
+
+                            {% if v.option1 == variant.options[index] %}
+                              {% if cnt == 1 %}
+                              </div>
+                              <div class="button-wrap">
+                                <a href="/products/{{ product.handle }}?variant={{v.id}}" class="text-link {% if variant_available == false %}disabled{% endif %}" data-product-id="{{ product_id }}" data-variant-id="{{ variant_id }}">Shop Now</a>
+                              </div>
+                              </div>
+                              {% endif %}
+                            {% assign cnt = cnt | plus: 1 %}
+                            {% endif %}
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {% capture tempList %}
+                  {{wattage | append: watts | append: " " }}
+                  {% endcapture %}
+                  {% assign wattage = tempList %}
+                  {% endunless %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+          {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

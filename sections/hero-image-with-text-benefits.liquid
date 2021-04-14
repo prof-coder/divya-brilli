@@ -1,0 +1,138 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+{% include 'hero-image-with-text-base' %}
+
+{% schema %}
+  {
+    "name": "Hero Image with text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "line-style",
+        "label": "Line Style",
+        "default": "line-style1",
+        "options": [
+          {
+            "value": "line-style1",
+            "label": "Style 1"
+          },
+          {
+            "value": "line-style2",
+            "label": "Style 2"
+          },
+          {
+            "value": "line-style3",
+            "label": "Style 3"
+          },
+          {
+            "value": "line-style4",
+            "label": "Style 4"
+          },
+          {
+            "value": "line-style5",
+            "label": "Style 5"
+          },
+          {
+            "value": "line-style6",
+            "label": "Style 6"
+          },
+          {
+            "value": "line-style7",
+            "label": "Style 7"
+          },
+          {
+            "value": "line-style8",
+            "label": "Style 8"
+          },
+          {
+            "value": "line-style9",
+            "label": "Style 9"
+          },
+          {
+            "value": "line-style10",
+            "label": "Style 10"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Hero Image with text"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading",
+        "default": "Hero Image with text subtext"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "checkbox",
+        "id": "angle_top",
+        "label": "Angled Top"
+      },
+      {
+        "type": "checkbox",
+        "id": "angle_bottom",
+        "label": "Angled Bottom"
+      },
+      {
+        "type": "text",
+        "id": "custom_css_classes",
+        "label": "Custom CSS Classes (Advanced)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

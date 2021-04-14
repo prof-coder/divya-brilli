@@ -1,0 +1,29 @@
+{% if product.metafields.custom_fields["wattage_products"] != blank %}
+
+  <div class="product-options-wrap">
+    <h4>Watt:</h4>
+    <div class="product-options watt">
+
+    {% assign product_refs = product.metafields.custom_fields["wattage_products"] | split: "|" %}
+    {% for product_handle in product_refs %}
+      {% assign product_ref = all_products[product_handle] %}
+      <a href="{{ product_ref.url }}" class="{% if product_ref.id == product.id %}active{% endif %}"
+        {% for option in product_ref.options_with_values %}
+          {% if option.name == 'Pack' %}
+            {% for value in option.values %}  
+              {% for variant in product_ref.variants %}
+                {% if product_ref.variants[0].option1 == variant.option1 %}
+                data-{{ variant.option2 | handleize }}="{{ product_ref.url }}?variant={{variant.id}}"
+                {% endif %}
+              {% endfor %}
+              {% break %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      >
+        {{ product_ref.variants[0].option1 }}
+      </a>
+    {% endfor %}
+    </div>
+  </div>
+{% endif %}

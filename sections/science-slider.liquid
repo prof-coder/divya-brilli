@@ -1,0 +1,116 @@
+<section class="HomeHeroscience HomeHeroscience_scientists"> 
+  <div class="innerwrap" style="background-color:{{section.settings.color}};">    
+     <div class="image-with-text__text">
+        <div class="inner">
+          <div class="title-holder text-center">
+            {% if section.settings.subtitle != blank %}
+              <h2>{{ section.settings.subtitle }}</h2>
+            {% endif %}
+            {% if section.settings.title != blank %}
+              <h1 class="cstm">{{ section.settings.title }}</h1>
+            {% endif %}
+            {% if section.settings.text != blank %}
+            {{ section.settings.text }}
+            {% endif %}
+          </div>
+        </div>
+     </div>
+     {% if section.blocks.size > 0 %}
+      <div class="science_sliderdiv">
+        <ul class="science_slider">
+          {% for block in section.blocks %}
+            <li class="scientist__item" {{ block.shopify_attributes }}>
+              <div class="card">
+                <div class="person_imagg">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | img_url: '160x160', scale: 2 | img_tag: block.settings.image.alt, 'logo-bar__image' }}
+                {% else %}
+                  {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+                </div>
+                {% if block.settings.text != blank %}
+                <div class="text-wrap">
+                  <h3>{{ block.settings.name }}</h3>
+                </div>
+                <div class="person_text">
+                  {{ block.settings.text }}
+                </div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+     {% endif %}
+
+     {% if section.blocks.size == 0 %}
+       {% include 'no-blocks' %}
+     {% endif %}
+  </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Scientists Carousel",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      },
+	  {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+	  
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+	  {
+        "type": "color",
+        "id": "color",
+        "label": "Section BG Color"
+      }
+    ],
+  "blocks": [
+    {
+      "type": "Person",
+      "name": "Person",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+		},
+		{
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    }
+  ],
+    "presets": [{
+        "name": "Scientists Carousel",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

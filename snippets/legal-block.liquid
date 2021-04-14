@@ -1,0 +1,14 @@
+ <div class="Legal">
+  <small><span class="copyright">&copy; </span><span class="date">{{ 'now' | date: "%Y" }}</span> {{ 'layout.footer.copyright' | t }}</small>
+  <nav>
+    <ul class="menu legal-menu">
+      {% for link in linklists['footer-legal'].links %}
+      <li>
+        <a href="{{ link.url }}">
+          {{ link.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

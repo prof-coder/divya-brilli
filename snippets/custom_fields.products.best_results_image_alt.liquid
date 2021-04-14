@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/products/configure/146051/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["best_results_image_alt"] != blank %}
+  <div class="custom-field custom-field__best-results-image-alt custom-field__type--text">
+    <h3 class="custom-field--title">Best Results Image Alt</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["best_results_image_alt"] }}
+    </div>
+  </div>
+{% endif %}

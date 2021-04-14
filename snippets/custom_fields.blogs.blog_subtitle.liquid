@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/blogs/configure/145722/edit
+{% endcomment %}
+{% if blog.metafields.custom_fields["blog_subtitle"] != blank %}
+  <div class="custom-field custom-field__blog-subtitle custom-field__type--text">
+    <h3 class="custom-field--title">Blog Subtitle</h3>
+    <div class="custom-field--value">
+      {{ blog.metafields.custom_fields["blog_subtitle"] }}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,43 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/globals/configure/145507/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["scientific_advisors"] != blank %}
+  <div class="custom-field custom-field__scientific-advisors custom-field__type--field-collection">
+    <h3 class="custom-field--title">Scientific Advisors</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign scientific_advisors_title_array = shop.metafields.custom_fields["scientific_advisors_title"] | split: separator %}
+      {% assign scientific_advisors_descriptio_array = shop.metafields.custom_fields["scientific_advisors_descriptio"] | split: separator %}
+      {% assign scientific_advisor_name_array = shop.metafields.custom_fields["scientific_advisor_name"] | split: separator %}
+      {% assign scientific_advisor_title_array = shop.metafields.custom_fields["scientific_advisor_title"] | split: separator %}
+      {% assign scientific_advisor_description_array = shop.metafields.custom_fields["scientific_advisor_description"] | split: separator %}
+      {% assign scientific_advisor_image_array = shop.metafields.custom_fields["scientific_advisor_image"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["scientific_advisors"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__scientific-advisors-title">
+            {{ scientific_advisors_title_array[index] }}
+          </div>
+          <div class="fc-field field__scientific-advisors-descriptio">
+            {{ scientific_advisors_descriptio_array[index] }}
+          </div>
+          <div class="fc-field field__scientific-advisor-name">
+            {{ scientific_advisor_name_array[index] }}
+          </div>
+          <div class="fc-field field__scientific-advisor-title">
+            {{ scientific_advisor_title_array[index] }}
+          </div>
+          <div class="fc-field field__scientific-advisor-description">
+            {{ scientific_advisor_description_array[index] }}
+          </div>
+          <div class="fc-field field__scientific-advisor-image">
+            {{ scientific_advisor_image_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

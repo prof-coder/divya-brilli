@@ -1,0 +1,21 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/bebrilli.myshopify.com/products/configure/143259/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["related_products"] != blank %}
+  <div class="custom-field custom-field__related-products custom-field__type--product-reference">
+    <h3 class="custom-field--title">Related Products</h3>
+    <div class="custom-field--value">  
+    {% assign product_refs = product.metafields.custom_fields["related_products"] | split: "|" %}
+      <ul>
+        {% for product_handle in product_refs %}
+          <li>
+            {% assign product_ref = all_products[product_handle] %}
+            {{ product_ref.title | link_to: product_ref.url }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

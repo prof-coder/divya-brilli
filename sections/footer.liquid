@@ -1,0 +1,79 @@
+<footer id="Footer">
+  <div class="FooterMain">
+    <div class="inner">
+      <div class="left">
+        <div class="block-wrap">
+          <div class="newsletter-block form-wrap">
+            <h3>Join Our Newsletter</h3>
+            <p>Get insights from the experts, exclusive offers,&nbsp;and&nbsp;more.</p>
+            {% include 'newsletter-form' %}
+          </div>
+
+          <div class="social-block">
+            {%- assign social_accounts = 'Instagram, Facebook, Twitter, Pinterest, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+            <ul>
+              {% for social in social_accounts %}
+                {%- assign social_handle = social | handleize -%}
+                {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+                {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+                {% if settings[social_link] != blank %}
+                  <li>
+                    <a href="{{ settings[social_link] }}" target="_blank" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}" class="taphover">
+                      {% include social_icon %}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="nav-wrap">
+          
+          <nav>
+            <h3>Shop</h3>
+            <ul class="menu footer-menu">
+              {% for link in linklists['footer-shop'].links %}
+              <li>
+                <a href="{{ link.url }}" class="taphover">
+                  {{ link.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </nav>
+
+          <nav>
+            <h3>Learn</h3>
+            <ul class="menu footer-menu">
+              {% for link in linklists['footer-learn'].links %}
+              <li>
+                <a href="{{ link.url }}" class="taphover">
+                  {{ link.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </nav>
+
+          <nav>
+            <h3>Help</h3>
+            <ul class="menu footer-menu">
+              {% for link in linklists['footer-help'].links %}
+              <li>
+                <a href="{{ link.url }}" class="taphover">
+                  {{ link.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="inner">
+      {% include 'legal-block' %}
+    </div>
+  </div>
+</footer>

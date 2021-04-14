@@ -1,0 +1,51 @@
+{% assign classes = '' %}
+{% if section.settings.angle_top != blank %}
+  
+  {% if section.settings.angle_bottom != blank %}
+    {% assign classes = 'angle--both-left-right' %}
+  {% else %}
+    {% assign classes = 'angle--top-left' %}
+  {% endif %}
+{% else %}
+  {% if section.settings.angle_bottom != blank %}
+    {% assign classes = 'angle--bottom-right' %}
+  {% endif %}
+{% endif %}
+ 
+<section class="hero-image-with-text activate-scroll {{ classes }} image-{{ section.settings.layout }} {{ section.settings.custom_css_classes }} {{ section.settings.line-style }}">
+  
+  {% include 'bars' %}
+
+  <div class="inner">
+    {% include 'bulbs' %}
+    <div class="glow_bg"></div>
+    <div class="image__image">
+      <div class="circle"></div>
+      {% if section.settings.hero_image != blank %}
+        <div class="image" style="background-image: url({{section.settings.hero_image | img_url: '3000x3000' }})"></div>
+      {% else %}
+        
+      {% endif %}
+    </div>
+
+    <div class="image-with-text__text">
+      <div class="inner">
+        <div class="title-holder">
+          {% if section.settings.title != blank %}
+            <h1>{{ section.settings.title }}</h1>
+          {% endif %}
+          {% if section.settings.subtitle != blank %}
+            <h2>{{ section.settings.subtitle }}</h2>
+          {% endif %}
+        </div>
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="button outline modal-video">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+</section>

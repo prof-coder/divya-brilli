@@ -1,0 +1,14 @@
+<div class="address">
+  {{ address | format_address }}
+  <div class="links">
+    <a class="address-edit-toggle text-link" data-form-id="{{ address.id }}" href="/account/addresses?address={{ address.id }}">{{ 'customer.addresses.edit' | t }}</a>
+    <a class="address-delete text-link" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">{{ 'customer.addresses.delete' | t }}</a>
+  </div>
+
+  <form data-address-delete-form method="post" action="/account/addresses/{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}" class="delete-form hide">
+    <input type="hidden" name="_method" value="delete"/>
+    <button type="submit">
+      {{ 'customer.addresses.delete' | t }}
+    </button>
+  </form>
+</div>

@@ -1,0 +1,75 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+
+{% include 'angle-classes' %}
+
+{% assign mobile_text_position_style = section.settings.mobile_text_position_style %}
+{% assign mobile_text_alignment = section.settings.mobile_text_alignment %}
+{% assign mobile_image_size = section.settings.mobile_image_size %}
+{% assign display_circle = section.settings.display_circle %}
+{% assign circle_color = section.settings.circle_color %}
+{% assign circle_small = section.settings.circle_small %}
+{% assign circuit_style = section.settings.circuit_style %}
+{% assign bulb_style = section.settings.bulb_style %}
+{% assign animation_style = section.settings.animation_style %}
+{% assign custom_css_classes = section.settings.custom_css_classes %}
+{% assign image = section.settings.image %}
+{% assign mobile_image = section.settings.mobile_image %}
+{% assign animation_frame_count = section.settings.animation_frame_count %}
+
+<section class="image-with-text activate-scroll {{ angle-classes }} {{ section.settings.background-color }} {{ section.settings.line-style }} {{ mobile_text_position_style }} {{ mobile_text_alignment }} {{ mobile_image_size }} {% if section.settings.layout == 'left' %}image-left{% else %}image-right{% endif %} {{ bulb_style }} {{ animation_style}} {{ custom_css_classes }} animation-frame-{{animation_frame_count}}">
+  <div class="circuitry {{ circuit_style }} "></div>
+  <div class="inner">
+    <div class="glow_bg"></div>
+    {% comment %}{% include 'bars' %}{% endcomment %}
+    {% unless bulb_style == 'bulb_style_none' %}
+    {% include 'bulbs' %}
+    {% endunless %}
+
+    <div class="image__image" data-animation-frame-count="{{animation_frame_count}}">
+      {% if display_circle != blank %}
+      <div class="circle {{ circle_color }} {% if circle_small != blank %}circle_small{% endif %}"></div>
+      {% endif %}
+      {% if image != blank %}
+        <div class="image desktop" style="background-image: url({{section.settings.image | img_url: 'master' }})"></div>
+      {% endif %}
+      {% if mobile_image != blank %}
+        <div class="image mobile" style="background-image: url({{section.settings.mobile_image | img_url: 'master' }})"></div>
+      {% endif %}
+
+      {% if section.settings.caption != blank %}
+        <div class="caption_text">
+          {{ section.settings.caption}}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="image-with-text__text">
+      <div class="inner">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div>{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="button outline">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,36 @@
+{% if product.metafields.custom_fields["benefit_collection"] != blank %}
+  {% assign collection_ref = collections[product.metafields.custom_fields["benefit_collection"]] %}
+{% endif %}
+{% if collection_ref != blank %}
+{% if collection_ref.metafields.custom_fields["collection_testimonials"] != blank %}
+<section class="ProductTestimonials {{ product.type | handleize }}" data-section-id="{{ section.id }}" data-section-type="product">
+  <div class="inner">
+    <div class="glow_bg"></div>
+    <h2>{{ shop.metafields.custom_fields["collection_testimonials_title"] }}</h2>
+    <div class="Testimonials">
+        {% assign separator = "|###|" %}
+        {% assign testimonial_body_array = collection_ref.metafields.custom_fields["testimonial_body"] | split: separator %}
+        {% assign testimonial_name_array = collection_ref.metafields.custom_fields["testimonial_name"] | split: separator %}
+        {% assign fc_keys = collection_ref.metafields.custom_fields["collection_testimonials"] | split: "," %}
+        {% for i in fc_keys %}
+          {% assign index = i | plus: 0 %}
+          <div class="ProductTestimonial">
+            <div class="text-wrap">
+              <div class="testimonial-body">
+                {{ testimonial_body_array[index] }}
+              </div>
+              <cite class="cite">
+                {{ testimonial_name_array[index] }}
+              </cite>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endif %}
+
+
+
+      

@@ -1,0 +1,61 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<section class="ProductSpecs {{ product.type | handleize }} modalwrap" data-section-id="{{ section.id }}">
+  <div class="modal v-center">
+    <div class="modal-header">
+      <a class="close">
+        <span class="line one"></span>
+        <span class="line two"></span>
+      </a>
+    </div>
+    <div class="modal-content main">
+      <h3>{{ product.title }} Specifications</h3>
+
+      {% assign size = product.variants | size %}
+
+      {% unless product.has_only_default_variant %}
+      {% if size > 2 %}
+      <nav class="variants-nav">
+        {% for option in product.options_with_values %}
+          {% unless option.name == 'Bulb Shape' %}
+            {% if forloop.index0 > -1 %}
+              {% for value in option.values %}
+                {% if option.name != 'Pack' %}
+                <label for="Option{{ option.position }}-{{ value }}"><input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>{{ value }}</label>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+      </nav>
+      {% endif %}
+      {% endunless %}
+      <div class="specs-wrap {% if size > 2%}has-subnav{% endif %}">
+        <div class="specs">
+          <div class="general-specs">
+            {{ product.metafields.custom_fields["general_specifications"] }}
+          </div>
+          <div class="variant-specs">
+            <div class="variant-custom-fields-wrapper">
+              {% if size > 1%}
+              {%- for variant in product.variants -%}
+              <div class="variant-custom-fields" data-variant-id="{{ variant.id }}"  {% if variant.id == current_variant.id or size == 1 %}style="display: block;"{% endif %}>
+                <div class="variant__cf">
+                  {% if variant.metafields.custom_fields['specification_list'] !=blank %}
+                    {{ variant.metafields.custom_fields['specification_list'] }}
+                  {% endif %}
+                </div>
+              </div>
+              {%- endfor -%}
+              {% else %}
+              <div class="variant-custom-fields" data-variant-id="{{ product.selected_or_first_available_variant.id }}" style="display: block;">
+                {{ product.metafields.custom_fields["specification_list"] }}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

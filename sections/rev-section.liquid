@@ -1,0 +1,7 @@
+{% if section.settings.slider_id != 'no-slider' %}
+                                          {% include {{section.settings.slider_id}}, slider_id:section.settings.slider_id %}
+                                          {% endif %}
+
+                                          {% schema %}
+                                                {"name":"Revolution Slider","class":"index-section index-section--flush","settings":[{"type":"select","id":"slider_id","label":"Select Slider","default":"no-slider","info":{"en":"Please make sure you click the SAVE button after selecting your slider."},"options":[{"label":"Select Slider","value":"no-slider"},{"label":"home slider test","value":"rev_Slider1Test"},{"label":"Typewriter Effect1237","value":"rev_typewriter-effect1237"},{"label":"mobile_rev_typewriter","value":"rev_mobilerevtypewriter"},{"label":"BF19 Early Access Desktop","value":"rev_bf19-early-access-desktop"},{"label":"BF19 Early Access Mobile","value":"rev_bf19-early-access-mobile"},{"label":"BF19 Main Event Desktop","value":"rev_bf19-main-event-desktop"},{"label":"BF19 Main Event Mobile","value":"rev_bf19-main-event-mobile"},{"label":"CM19 Mirror Desktop","value":"rev_cm19-mirror-desktop"},{"label":"CM19 Mirror Mobile","value":"rev_cm19-mirror-mobile"}]}],"presets":[{"name":"Revolution Slider","category":"Image"}]}
+                                          {% endschema %}

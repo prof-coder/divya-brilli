@@ -1,0 +1,155 @@
+{% comment %}
+  The data-label attributes on <td> elements are mobile-friendly
+  helpers used for responsive-table labels
+{% endcomment %}
+
+
+<div id="content" role="main" class="Account">
+  <a class="text-link back MyAccountBtn" href="/account">{{ 'customer.account.return' | t }}</a>
+  <div class="inner">
+    <div class="AccountTitle no-description">
+      <h1>{{ 'customer.order.title' | t: name: order.name }}</h1>
+    </div>
+
+    <div class="AccountSection status">
+      <div class="row">
+        <div class="cell">
+          <h2>{{ 'customer.orders.payment_status' | t }}:</h2>
+          {% if order.cancelled %}
+            <p class="align-right"><span class="cancelled">Cancelled</span></p>
+          {% else %}
+            <p class="align-right">{{ order.financial_status | capitalize }}</p>
+          {% endif %}
+        </div>
+        <div class="cell">
+          <h2>{{ 'customer.orders.fulfillment_status' | t }}:</h2>
+          {% if order.fulfillment_status == 'fulfilled' %}
+          <p class="align-right">
+          {% for line_item in order.line_items %}
+            {% if line_item.fulfillment.tracking_number %}
+                <a href="{{ line_item.fulfillment.tracking_url }}" class="text-link" target="_blank">{{ line_item.fulfillment.tracking_number}}</a>
+                {% break %}
+            {% endif %}
+            <br>
+          {% endfor %}
+          </p>
+          {% else %}
+          <p class="align-right">{{ order.fulfillment_status | capitalize }}</p>
+          {% endif %}
+        </div>
+      </div>
+      <hr/>
+    </div>
+
+    <div class="AccountSection order-summary clearfix">
+      <h2>Order Summary</h2>
+
+      <div class="logout-holder">
+        <p>Date: <span>{{ 'customer.order.date' | t: date: order.created_at | date: "%m/%d/%Y" }}</span></p>
+      </div>
+      <hr/>
+      <table class="responsive-table product-listing">
+        <tbody>
+          {% for line_item in order.line_items %}
+            <tr id="{{ line_item.key }}" class="responsive-table-row">
+              <td class="product-image {{ line_item.product.type | handleize }}">
+                <div class="image-holder">
+                  <a href="{{ line_item.product.url }}">{{ line_item.image | img_url: '226x226' | img_tag }}</a>
+                </div>
+              </td>
+              <td class="product-details" data-label="{{ 'customer.order.product' | t }}">
+                <a href="{{ line_item.variant.url }}" class="product-title">
+                  <h3>{{ line_item.title }}</h3>
+                  {% unless line_item.variant.title == 'Default Title' %}
+                  <p>{{ line_item.variant.title }}</p>
+                  {% endunless %}
+                </a>
+                <p class="quantity">Quantity: {{ line_item.quantity }}</p>
+                {% if line_item.product.metafields.custom_fields["requires_installation"] == 1 %}
+                <p><a class="text-link" href="{{ shop.metafields.custom_fields["porch_url"] }}" target="_blank" rel="Find an Installer  ">Find an Installer</a></p>
+                {% endif %}
+              </td>
+              <td class="product-actions" data-label="{{ 'customer.order.total' | t }}">
+                <p class="price">{{ line_item.quantity | times: line_item.price | money }}</p>  
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <table class="totals">
+        <tbody>
+          <tr class="responsive-table-row">
+            <td class="key" colspan="4" class="small--hide"><p>{{ 'customer.order.subtotal' | t }}</p></td>
+            <td class="value" data-label="{{ 'customer.order.subtotal' | t }}"><p>{{ order.subtotal_price | money }}</p></td>
+          </tr>
+
+          {% for discount in order.discounts %}
+            <tr>
+              <td class="key" colspan="4" class="small--hide"><p>{{ discount.code }} {{ 'customer.order.discount' | t }}</p></td>
+              <td class="value" data-label="{{ 'customer.order.discount' | t }}"><p>{{ discount.savings | money }}</p></td>
+            </tr>
+          {% endfor %}
+
+          {% for shipping_method in order.shipping_methods %}
+            <tr>
+              <td class="key"  colspan="4" class="small--hide"><p>{{ 'customer.order.shipping' | t }}</p></td>
+              <td class="value" data-label="{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})"><p>{{ shipping_method.price | money }}</p></td>
+            </tr>
+          {% endfor %}
+
+          {% for tax_line in order.tax_lines %}
+            <tr>
+              <td class="key"  colspan="4" class="small--hide"><p>{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</p></td>
+              <td class="value" data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)"><p>{{ tax_line.price | money }}</p></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="key"  colspan="4" class="small--hide"><p><strong>{{ 'customer.order.total' | t }}</strong></p></td>
+            <td class="value" data-label="{{ 'customer.order.total' | t }}"><p><strong>{{ order.total_price | money }}</strong></p></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="AccountSection addresses">
+      <h2>Shipping & Billing</h2>
+      <hr/>
+      <div class="row">
+        <div class="cell">
+          <p><span class="label">{{ 'customer.order.shipping_address' | t }}</span></p>
+          {{ order.shipping_address | format_address }}
+        </div>
+        <div class="cell">
+          <div class="billing-address">
+            <p><span class="label">{{ 'customer.order.billing_address' | t }}</span></p>
+            {{ order.billing_address | format_address }}
+          </div>
+          <div class="payment-method">
+            {% for transaction in order.transactions %}
+            {% if transaction.payment_details.credit_card_number != blank %}
+            <p><span class="label">Payment Method</span></p>
+            <p>Card ending in {{ transaction.payment_details.credit_card_number | replace: "•••• ", "" }}</p>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="AccountSection help">
+      <h2>Need Help?</h2>
+      <hr/>
+      <div class="row">
+        <div class="cell">
+          <p class="customer-service">Submit a request <a href="https://bebrilli.zendesk.com/hc/en-us/requests/new">here</a> or contact us at <a href="mailto:concierge@bebrilli.com">concierge@bebrilli.com</a></p>
+        </div>
+        <div class="cell">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div`>

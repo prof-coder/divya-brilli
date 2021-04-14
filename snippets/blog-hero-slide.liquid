@@ -1,0 +1,25 @@
+<div class="BlogHeroSlide">
+  <a href="{{ article.url }}" alt="{{ article.title }}" class="entry-content">
+    <div class="img-wrap">
+      <div class="image" style="background-image: url('{{ article.image | img_url: '1304x' }}')">
+        <img src="{{ article.image | img_url: '1304x' }}"/>
+      </div>
+    </div>
+    <div class="text-wrap">
+      {% if article.tags.size > 0 %}
+        <ul class="tags">
+          {% for tag in article.tags %}
+            {% unless tag == 'Featured' %}
+            <li>
+              {{ tag }}{% unless forloop.last %}<span class="separator">/</span>{% endunless %}
+            </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.excerpt }}</p>
+      <span class="button large w-shadow read-more">Read More</span>
+    </div>
+  </a>
+</div>

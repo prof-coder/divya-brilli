@@ -1,0 +1,21 @@
+<div class="entry">
+  <a href="{{ article.metafields.custom_fields["press_url"] }}" alt="{{ article.title }}" class="entry-content" target="_blank">
+    <div class="logo-wrap">
+      {% include 'responsive-image' with
+            image: article.image,
+            max_width: 1024,
+            max_height: 1024
+          %}
+    </div>
+    {% capture date %}{{ article.published_at | date: "%b %d, %Y" }}{% endcapture %}
+    <span class="entry-date">{{ date }}</span>
+    {% if article.excerpt.size > 0 %}
+      {{ article.excerpt }}
+    {% else %}
+      <p>
+        {{ article.content | strip_html | truncatewords: 100 }}
+      </p>
+      <span class="text-link" rel="{{ product_ref.title }}">Read More</a>
+    {% endif %}
+  </a>
+</div>

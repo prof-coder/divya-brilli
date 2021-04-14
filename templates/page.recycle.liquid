@@ -1,0 +1,31 @@
+  {% section 'hero-image-general' %}
+<div class="page-body BodyCopy">
+  <div class="TitleWrap">
+    <h1>{{ page.title }}</h1>
+  </div>
+  <div class="rte">
+    {{ page.content }}
+  </div>
+
+  {% if page.metafields.custom_fields["recycle_methods"] != blank %}
+    <div class="RecycleMethods">
+      {% assign separator = "|###|" %}
+      {% assign recycle_method_title_array = page.metafields.custom_fields["recycle_method_title"] | split: separator %}
+      {% assign recycle_method_description_array = page.metafields.custom_fields["recycle_method_description"] | split: separator %}
+      {% assign recycle_method_image_array = page.metafields.custom_fields["recycle_method_image"] | split: separator %}
+      {% assign fc_keys = page.metafields.custom_fields["recycle_methods"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="recycle-method">
+          <div class="img-holder">
+            <img src="{{ recycle_method_image_array[index] }}" alt="{{ recycle_method_title_array[index] }}" />
+          </div>
+          <div class="text-holder">
+            <h3>{{ recycle_method_title_array[index] }}</h3>
+            {{ recycle_method_description_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+{% endif %}
+</div>

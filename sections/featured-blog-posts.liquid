@@ -1,0 +1,51 @@
+<section class="FeaturedBlogPosts">
+  <div class="inner">
+    <div class="top-copy">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="article-list">
+      {% assign blog = blogs.brilli %}
+      {% for article in blog.articles limit:2 %}
+        {% if article != blank %}
+          <div class="FeaturedArticle">
+            <a href="{{ article.url }}" alt="{{ article.title }}" class="entry-content">
+              <div class="img-wrap">
+                <div class="image" style="background-image: url('{{ article.image | img_url: '1304x' }}')">
+                  <img src="{{ article.image | img_url: '1304x' }}"/>
+                </div>
+              </div>
+              <div class="text-wrap">
+                <h3>{{ article.title }}</h3>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% unless section.settings.button_label == blank %}<a href="/blogs/brilli" class="button outline large">{{ section.settings.button_label }}</a>{% endunless %}
+  </div>
+</section> 
+
+{% schema %}
+  {
+    "name": "Featured Blog Posts", 
+    "presets": [
+      {
+        "name": "Featured Blog Posts",
+        "category": "Blog"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      } 
+    ]
+  }
+{% endschema %}

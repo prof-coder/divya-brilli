@@ -1,0 +1,11 @@
+<div class="Modal video">
+  <a class="close">
+    <span class="line one"></span>
+    <span class="line two"></span>
+  </a>
+  {% assign video_id = '361895180' %}
+  {% if video_id != blank %}
+    <div style="position:relative;" class="iframe-wrap">
+      <iframe id="hero-video" data-video-id="{{ video_id }}" src="" data-autoplay-src="https://player.vimeo.com/video/{{ video_id }}?color=000000&title=0&byline=0&portrait=0&background=0&autoplay=1" data-static-src="https://player.vimeo.com/video/{{ video_id }}?color=000000&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  {% endif %}
+</div>
