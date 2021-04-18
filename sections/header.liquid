@@ -237,12 +237,14 @@
             </a>
             {% endif %}
           </li>
-          <li class="cart-wrap">
-            <a class="cart-btn" href="/cart">
-              <span class="count" style="display: none;"></span>
-              {% include 'icon-cart' %}
-            </a>
-          </li>
+          {%- unless template == 'product.addition-site' -%}
+            <li class="cart-wrap">
+              <a class="cart-btn" href="/cart">
+                <span class="count" style="display: none;"></span>
+                {% include 'icon-cart' %}
+              </a>
+            </li>
+            {%- endunless -%}
         </ul>
       </div>
 
