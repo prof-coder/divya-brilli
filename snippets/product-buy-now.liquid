@@ -1,0 +1,24 @@
+<a
+  type="button"
+  name="add"
+  {% if current_variant.metafields.custom_fields.alternative_url != blank %}
+    href="{{ current_variant.metafields.custom_fields.alternative_url }}"
+  {%- else -%}
+    href="{{ product.metafields.custom_fields.alternative_url }}"
+  {%- endif -%}
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text">
+    {{ 'products.product.buy_now' | t }}
+  </span>
+</a>
+
+<script type="text/javascript">
+  window.variantLinks={
+    {%- for _v in product.variants -%}
+      "{{ _v.id }}": {{ _v.metafields.custom_fields.alternative_url | json }},
+    {%- endfor -%}
+  }
+</script>

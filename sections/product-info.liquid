@@ -3,7 +3,12 @@
 {% assign title = current_variant.metafields.custom_fields["product_detail_name"] %}
 {% if title == blank %}
   {% assign title = product.title %}
-{% endif %} 
+{% endif %}
+
+{%- assign alternative = false -%}
+{%- if template.suffix == "addition-site" -%}
+  {%- assign alternative = true -%}
+{%- endif -%}
 
 <section class="ProductInfo {{ product.type | handleize }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" data-product-id="{{ecommerce_id}}">
   <div class="inner">
@@ -36,12 +41,12 @@
                             {% unless optionvalues contains v.option1 %}
                               {% assign optionvalues = optionvalues | append: v.option1 %}
                               {% assign option_val = v.option1 | append:"" %}
-                              
+
                               <div class="slideshow-wrap {{ option_val }} ">
                                 <div class="slideshow">
                                   {% for image in product.images %}
                                     {% if image.alt contains "gallery" and image.alt contains option_val %}
-                                      <div class="slide {{ image.alt }}"><img src="{{ image.src | img_url: '1200x' }}" alt="{{ image.alt }}"/></div>    
+                                      <div class="slide {{ image.alt }}"><img src="{{ image.src | img_url: '1200x' }}" alt="{{ image.alt }}"/></div>
                                     {% endif %}
                                   {% endfor %}
                                 </div>
@@ -51,7 +56,7 @@
                                 <div class="thumbnails">
                                   {% for image in product.images %}
                                     {% if image.alt contains "gallery" and image.alt contains option_val %}
-                                      <span class="thumb {{ image.alt }}"><img src="{{ image.src | img_url: '200x' }}" alt="{{ image.alt }}"/></span>    
+                                      <span class="thumb {{ image.alt }}"><img src="{{ image.src | img_url: '200x' }}" alt="{{ image.alt }}"/></span>
                                     {% endif %}
                                   {% endfor %}
                                 </div>
@@ -94,7 +99,7 @@
       </div>
       <div class="star-rating-wrap">
         <div class="product-star-rating yotpo bottomLine"
-          data-appkey="W3b6GPSj8fjs7h2XMPYE8sFjD0GZVs1RzyN5F3Ks"    
+          data-appkey="W3b6GPSj8fjs7h2XMPYE8sFjD0GZVs1RzyN5F3Ks"
           data-product-id="{{ product.id }}" style="pointer-events: none;">
         </div>
         <a class="reviews-anchor"></a>
@@ -135,7 +140,6 @@
                       </option>
                     {% endfor %}
                   </select>
-
                 {% endif %}
               </div>
             </div>
@@ -159,13 +163,15 @@
 
         <input name="id" id="variantID" value="{{ current_variant.id }}" type="hidden">
 
-        <div class="product-actions">
-          <div class="item">
-            {% include 'product-price' %}
+        {%- unless alternative -%}
+          <div class="product-actions">
+            <div class="item">
+              {% include 'product-price' %}
+            </div>
+            <div class="item">
+            </div>
           </div>
-          <div class="item">
-          </div>
-        </div>
+        {%- endunless -%}
 
         <div class="product-quantity">
           <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
@@ -177,21 +183,38 @@
           </span>
         </div>
 
-        <div class="product-add">
-          {% include 'product-add-to-cart' %}
-        </div>
-
-        <div class="product-add mobile">
-          {% include 'product-add-to-cart' %}
-        </div>
+        {%- if alternative -%}
+          <div class="product-add">
+            {% include 'product-buy-now' %}
+          </div>
+          <div class="product-add mobile">
+            {% include 'product-buy-now' %}
+          </div>
+        {%- else -%}
+          <div class="product-add">
+            {% include 'product-add-to-cart' %}
+          </div>
+          <div class="product-add mobile">
+            {% include 'product-add-to-cart' %}
+          </div>
+        {%- endif -%}
 
         <div class="product-derisk">
           {% if product.metafields.custom_fields["product_special_instructions"] != blank %}
-            <div class="special-instructions">  
+            <div class="special-instructions">
                 {{ product.metafields.custom_fields["product_special_instructions"] }}
-            </div>  
+            </div>
           {% endif %}
-          {{ shop.metafields.custom_fields["purchase_derisk_text"] }}
+
+          {%- if product.metafields.custom_fields["purchase_derisk_text_alt"] != blank -%}
+            {{ product.metafields.custom_fields["purchase_derisk_text_alt"] }}
+          {%- else -%}
+            {%- if alternative -%}
+              {{ shop.metafields.custom_fields["purchase_derisk_text_alt"] }}
+            {%- else -%}
+              {{ shop.metafields.custom_fields["purchase_derisk_text"] }}
+            {%- endif -%}
+          {%- endif -%}
         </div>
 
       {% endform %}
@@ -250,4 +273,3 @@
     ]
   }
 {% endschema %}
-  

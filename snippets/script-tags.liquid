@@ -15,7 +15,7 @@
 <script type="text/javascript" src="{{ 'template.gift_card.js' | asset_url }}" defer="defer"></script>
 {%- else -%}
 <link rel="prefetch" href="{{ 'template.gift_card.js' | asset_url }}" as="script">
-{%- endif -%} {%- if template == 'index' or template == 'product' -%}
+{%- endif -%} {%- if template == 'index' or template == 'product' or template == 'product.addition-site' -%}
 <script type="text/javascript" src="{{ 'vendors@template.index@template.product.js' | asset_url }}" defer="defer"></script>
 {%- else -%}
 <link rel="prefetch" href="{{ 'vendors@template.index@template.product.js' | asset_url }}" as="script">
@@ -23,7 +23,7 @@
 <script type="text/javascript" src="{{ 'template.index.js' | asset_url }}" defer="defer"></script>
 {%- else -%}
 <link rel="prefetch" href="{{ 'template.index.js' | asset_url }}" as="script">
-{%- endif -%} {%- if template == 'product' -%}
+{%- endif -%} {%- if template == 'product' or template == 'product.addition-site' -%}
 <script type="text/javascript" src="{{ 'template.product.js' | asset_url }}" defer="defer"></script>
 {%- else -%}
 <link rel="prefetch" href="{{ 'template.product.js' | asset_url }}" as="script">

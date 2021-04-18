@@ -16,7 +16,7 @@
       {% else %}
       <ul>
       {% endif %}
-        {% for child_link in link.links %}  
+        {% for child_link in link.links %}
         <li>
           {% assign classes = blank %}
           {% if child_link.current == true %}
@@ -25,17 +25,17 @@
           <a href="{{ child_link.url }}" class="{{ classes }}" data-id="{{ child_link.handle }}">
             {% if child_link.type == 'product_link' %}
               {% for image in child_link.object.images %}
-                {% if image.alt contains "menu" %}   
+                {% if image.alt contains "menu" %}
                   <img src="{{ image | img_url }}" alt="{{ image.alt }}" />
                   {% break %}
                 {% endif %}
-              {% endfor %}              
+              {% endfor %}
             {% endif %}
             {{ child_link.title }}
           </a>
         </li>
         {% endfor %}
-      </ul> 
+      </ul>
       {% unless link.handle == "learn" %}
       <a href="{{ link.url }}" class="button large outline">See all {{ link.title }}</a>
       {% endunless %}

@@ -10,7 +10,7 @@
       <a href="{{ product_ref.url }}" class="{% if product_ref.id == product.id %}active{% endif %}"
         {% for option in product_ref.options_with_values %}
           {% if option.name == 'Pack' %}
-            {% for value in option.values %}  
+            {% for value in option.values %}
               {% for variant in product_ref.variants %}
                 {% if product_ref.variants[0].option1 == variant.option1 %}
                 data-{{ variant.option2 | handleize }}="{{ product_ref.url }}?variant={{variant.id}}"

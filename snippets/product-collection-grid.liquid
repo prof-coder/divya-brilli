@@ -17,7 +17,7 @@
          {{ variant.options[index] }}
          {% endcapture %}
            {% unless wattage contains watts %}
-              <div class="ProductGridItem multi-variant {{ product.handle }} {{ collection_ref.handle }} taphover" data-url="{{ product.url }}">
+              <div class="ProductGridItem sss multi-variant {{ product.handle }} {{ collection_ref.handle }} taphover" data-url="{{ product.url }}">
                 {% assign variant_id = blank %}
                 {% assign variant_available = false %}
                 <div class="inner">
@@ -29,7 +29,7 @@
 
                         {% assign thumb = v.featured_image | img_url: '1080x' %}
                         {% assign thumb_over = v.metafields.custom_fields['collection_overlay_image'] %}
- 
+
                         <img src="{{ thumb }}"/>
                         <!--<img class="overlay" src="{{ v.metafields.custom_fields['collection_overlay_image'] }}" />-->
                         {% comment %} Images {% endcomment %}
@@ -51,7 +51,7 @@
                           {% unless description == blank %}
                           <p class="description">{{ description }}</p>
                           {% endunless %}
-                        </a>  
+                        </a>
                       </div>
                       <div class="actions-wrap">
                         <a class="option-wrap" href="/products/{{ product.handle }}?variant={{v.id}}">
@@ -85,7 +85,7 @@
                         {%  if v.available == false %}
                           {% assign active_class = 'disabled' %}
                         {% endif %}
-                        
+
                         {% assign active_class = blank %}
                       {% endif %}
 
@@ -93,7 +93,7 @@
                         {% if cnt == 1 %}
                         </div>
                         <div class="button-wrap">
-                          <a href="/products/{{ product.handle }}?variant={{v.id}}" class="text-link {% if variant_available == false %}disabled{% endif %}" data-product-id="{{ product_id }}" data-variant-id="{{ variant_id }}">Shop Now</a>
+                          <a href="/products/{{ product.handle }}?variant={{v.id}}" class="text-link {% if variant_available == false %}disabled{% endif %}" data-product-id="{{ product_id }}" data-variant-id="{{ variant_id }}">Learn More</a>
                         </div>
                         </div>
                         {% endif %}
