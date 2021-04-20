@@ -10,6 +10,9 @@
   Theme Store optional settings
   - Home page only: only shows osn the home page
 {%- endcomment -%}
+
+{%- assign _show_account_icon = false -%}
+{%- assign _show_cart_icon = false -%}
 <section data-section-id="{{ section.id }}" data-section-type="header">
   {%- if settings.announcement_bar_enabled -%}
     {%- if settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
@@ -226,25 +229,27 @@
               </a>
             </div>
           </li>
-          <li class="customer-wrap">
-            {% if customer %}
-            <a href="/account" title="Account">
-              {% include 'icon-account' %}
-            </a>
-            {% else %}
-            <a href="/account/login" class="login" title="Login">
-              {% include 'icon-account' %}
-            </a>
-            {% endif %}
-          </li>
-          {%- unless template == 'product.addition-site' -%}
+          {%- if _show_account_icon -%}
+            <li class="customer-wrap">
+              {% if customer %}
+              <a href="/account" title="Account">
+                {% include 'icon-account' %}
+              </a>
+              {% else %}
+              <a href="/account/login" class="login" title="Login">
+                {% include 'icon-account' %}
+              </a>
+              {% endif %}
+            </li>
+          {%- endif -%}
+          {%- if _show_cart_icon -%}
             <li class="cart-wrap">
               <a class="cart-btn" href="/cart">
                 <span class="count" style="display: none;"></span>
                 {% include 'icon-cart' %}
               </a>
             </li>
-            {%- endunless -%}
+          {%- endif -%}
         </ul>
       </div>
 
