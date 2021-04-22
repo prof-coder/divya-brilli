@@ -1,4 +1,13 @@
+# Dev
+# development:
+#   password: 31ecdefcecacfa7fbe79d8856be34c90
+#   theme_id: "121765134514"
+#   store: https://bebrilli.myshopify.com
+
+# Live
 development:
   password: 31ecdefcecacfa7fbe79d8856be34c90
-  theme_id: "121765134514"
+  theme_id: "81992024147"
   store: https://bebrilli.myshopify.com
+  ignore_files:
+    - config/settings_data.json
