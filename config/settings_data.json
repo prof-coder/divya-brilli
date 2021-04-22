@@ -2,7 +2,7 @@
   "current": {
     "announcement_bar_enabled": true,
     "announcement_bar_home_page_only": false,
-    "announcement_bar_text": "FREE SHIPPING     |     LIFETIME WARRANTY",
+    "announcement_bar_text": "LIGHTING FOR WELLNESS",
     "announcement_bar_link": "",
     "color_accent": "#c4cdd5",
     "color_body_text": "#69727b",
@@ -708,7 +708,7 @@
         "settings": {
           "title": "Light better, live better.",
           "text": "<p>Make the switch to the energy-efficient lighting scientifically engineered for better health and wellness.<\/p>",
-          "button_label": "SHOP ALL COLLECTIONS",
+          "button_label": "View All Collections",
           "button_url": "shopify:\/\/collections",
           "image": "shopify:\/\/shop_images\/home-hero-bulbs-desktop.jpg",
           "mobile_image": "shopify:\/\/shop_images\/home-hero-bulbs-mobile.jpg"
