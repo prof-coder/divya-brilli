@@ -13,7 +13,7 @@
   {%- endif -%}
 {%- endif -%}
 
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}{% if template.suffix != blank %}-{{ template.suffix | handle }}{% endif %} {{ announcement_class }}">
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}{% if template.suffix != blank %}-{{ template.suffix | handle }}{% endif %}{% if template == 'product.addition-site' %} template-product{% endif %} {{ announcement_class }}">
   {% include 'gtm-body' %}
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }} </a>
   {% section 'header' %}

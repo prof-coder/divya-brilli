@@ -173,15 +173,17 @@
           </div>
         {%- endunless -%}
 
-        <div class="product-quantity">
-          <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
-          <label>{{ 'products.product.quantity' | t }}:</label>
-          <span class="item-quantity">
-            <button class="icon-minus">{% include 'minus' %}<span class="visually-hidden">Quantity Less</span></button>
-            <span class="qty">1</span>
-            <button class="icon-plus">{% include 'plus' %}<span class="visually-hidden">Quantity More</span></button>
-          </span>
-        </div>
+        {%- unless alternative -%}
+          <div class="product-quantity">
+            <input type="hidden" id="Quantity" name="quantity" value="1" min="1">
+            <label>{{ 'products.product.quantity' | t }}:</label>
+            <span class="item-quantity">
+              <button class="icon-minus">{% include 'minus' %}<span class="visually-hidden">Quantity Less</span></button>
+              <span class="qty">1</span>
+              <button class="icon-plus">{% include 'plus' %}<span class="visually-hidden">Quantity More</span></button>
+            </span>
+          </div>
+          {%- endunless -%}
 
         {%- if alternative -%}
           <div class="product-add">
